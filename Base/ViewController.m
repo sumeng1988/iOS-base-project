@@ -11,6 +11,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, strong) SMImagePicker *picker;
 
 @end
 
@@ -22,6 +23,9 @@
     self.title = @"Base";
     
     _datas = [[NSMutableArray alloc] init];
+    
+    _picker = [[SMImagePicker alloc] initWithDelegate:nil];
+    [_picker executeInViewController:self];
 }
 
 - (void)refresh:(BOOL)flush {

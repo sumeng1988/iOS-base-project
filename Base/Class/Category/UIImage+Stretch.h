@@ -13,7 +13,4 @@
 + (UIImage *)stretchImage:(NSString *)name;
 + (UIImage *)stretchImage:(NSString *)name capInsets:(UIEdgeInsets)capInsets;
 
-+ (UIImage *)imageWithContentOfNamed:(NSString *)name;
-+ (UIImage *)imageWithContentOfNamed:(NSString *)name ofType:(NSString *)ext;
-
 @end

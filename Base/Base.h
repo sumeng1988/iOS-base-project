@@ -15,7 +15,7 @@
 #import "Context.h"
 
 #import "SMHud.h"
-#import "SMImageLibrary.h"
+#import "SMImagePicker.h"
 
 extern BOOL kUIScreenIsRetina;
 extern CGSize kUIScreenSize;

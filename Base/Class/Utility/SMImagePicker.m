@@ -6,33 +6,26 @@
 //  Copyright (c) 2015 sumeng. All rights reserved.
 //
 
-#import "SMImageLibrary.h"
+#import "SMImagePicker.h"
 #import "ELCImagePickerController.h"
 
-@implementation SMImageLibrary
+#define kImagePickerDir @"ImagePicker/"
 
-+ (void)save:(UIImage *)image {
-    
-}
-
-@end
-
-@interface SMImageLibraryPicker () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ELCImagePickerControllerDelegate>
+@interface SMImagePicker () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ELCImagePickerControllerDelegate>
 
 @property (nonatomic, weak) UIViewController *vc;
 
 @end
 
-@implementation SMImageLibraryPicker
+@implementation SMImagePicker
 
 - (id)init {
     return [self initWithDelegate:nil];
 }
 
-- (id)initWithDelegate:(id<SMImageLibraryPickerDelegate>)delegate {
+- (id)initWithDelegate:(id<SMImagePickerDelegate>)delegate {
     self = [super init];
     if (self) {
-        self.title = @"选择照片";
         self.allowEditing = NO;
         self.maxCount = 1;
         self.thumbSize = CGSizeMake(100, 100);
@@ -46,14 +39,16 @@
 
 - (void)dealloc {
     [_paths removeAllObjects];
-    [[FileSystem shared] removePicturesTemporaryFiles];
+    [[FileSystem shared] remove:[self cacheDir]];
 }
+
+#pragma mark - public
 
 - (void)executeInViewController:(UIViewController *)vc {
     [Keyboard close];
     self.vc = vc;
     
-    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:self.title
+    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:@"选择照片"
                                                         delegate:self
                                                cancelButtonTitle:@"取消"
                                           destructiveButtonTitle:nil
@@ -69,9 +64,6 @@
             imagePicker.sourceType = sourceType;
             imagePicker.delegate = self;
             imagePicker.allowsEditing = _allowEditing;
-            if (sourceType == UIImagePickerControllerSourceTypeCamera && _allowCameraEditing) {
-                imagePicker.allowsEditing = YES;
-            }
             imagePicker.modalPresentationStyle = UIModalPresentationFormSheet;
             [_vc presentViewController:imagePicker animated:YES completion:nil];
         }
@@ -87,39 +79,14 @@
     }
 }
 
-- (UIImage *)resizeImage:(UIImage *)image {
-//    // 最大边不超过1136
-//    CGFloat max = 11360;
-//    CGFloat scalex = image.size.width/max;
-//    CGFloat scaley = image.size.height/max;
-//    if (scalex > 1.0 || scaley > 1.0) {
-//        CGSize size;
-//        if (scalex > scaley) {
-//            size.width = max;
-//            size.height = image.size.height*max/image.size.width;
-//        }else {
-//            size.height = max;
-//            size.width = image.size.width*max/image.size.height;
-//        }
-//        image = [image resize:size contentMode:_thumbMode];
-//    }
-//    return image;
-    
-    CGFloat width = 1080;
-    CGFloat height = 11360;
-    if (image.size.width > width || image.size.height > height) {
-        CGSize size;
-        if (image.size.height > height) {
-            size.height = height;
-            size.width = image.size.width*height/image.size.height;
-        }
-        if (image.size.width > width) {
-            size.width = width;
-            size.height = image.size.height*width/image.size.width;
-        }
-        image = [image resize:size contentMode:_thumbMode];
-    }
-    return image;
+#pragma mark - private
+
+- (NSString *)cacheDir {
+    return [[FileSystem shared].tmpDir stringByAppendingString:kImagePickerDir];
+}
+
+- (NSString *)temporary {
+    return [[[FileSystem shared] temporary:[self cacheDir]] stringByAppendingString:@".jpg"];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -129,11 +96,7 @@
         return;
     }
     
-    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
-    if (buttonIndex == 1) {
-        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    
+    UIImagePickerControllerSourceType sourceType = (buttonIndex == 1 ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary);
     [self execute:sourceType inViewController:_vc];
 }
 
@@ -147,10 +110,9 @@
     else {
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
-    image = [self resizeImage:image];
     
     [_paths removeAllObjects];
-    [_paths addObject:[[FileSystem shared].picturesTemporary stringByAppendingString:@".jpg"]];
+    [_paths addObject:[self temporary]];
     [UIImageJPEGRepresentation(image, 0.7) writeToFile:_paths.firstObject atomically:YES];
     image = [image resize:_thumbSize contentMode:_thumbMode];
     
@@ -179,9 +141,8 @@
         [_paths removeAllObjects];
         for (NSDictionary *dict in info) {
             UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
-            image = [self resizeImage:image];
             
-            [_paths addObject:[[FileSystem shared].picturesTemporary stringByAppendingString:@".jpg"]];
+            [_paths addObject:[self temporary]];
             [UIImageJPEGRepresentation(image, 0.7) writeToFile:_paths.lastObject atomically:YES];
             image = [image resize:_thumbSize contentMode:_thumbMode];
             [images addObject:image];

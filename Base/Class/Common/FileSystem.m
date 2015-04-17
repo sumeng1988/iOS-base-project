@@ -31,92 +31,57 @@ SHARED_IMPL
         NSArray* caches = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
         
         // 获得写入的根目录
-        _bundleDirectory = [[NSBundle mainBundle].resourcePath copy];
-        _rootWritable = [dirs.lastObject copy];
-        _cacheDirectory = [caches.lastObject copy];
-        _tmpDirectory = [NSTemporaryDirectory() copy];
+        _bundleDir = [[NSBundle mainBundle].resourcePath copy];
+        _documentDir = [dirs.lastObject copy];
+        _cacheDir = [caches.lastObject copy];
+        _tmpDir = [NSTemporaryDirectory() copy];
     }
     return self;
 }
 
-- (NSString*)pathWritable:(NSString*)name {
-    return [_rootWritable stringByAppendingFormat:@"/%@", name];
+- (BOOL)mkdir:(NSString *)dir {
+    return [self mkdir:dir intermediate:NO];
 }
 
-- (NSString*)pathBundle:(NSString *)name {
-    return [_bundleDirectory stringByAppendingFormat:@"/%@", name];
-}
-
-- (NSString*)dirCache:(NSString*)name {
-    NSString* ret = [_cacheDirectory stringByAppendingFormat:@"/%@/", name];
-    [self mkdir:ret];
-    return ret;
-}
-
-- (BOOL)mkdir:(NSString *)path {
-    return [self mkdir:path intermediate:NO];
-}
-
-- (BOOL)mkdir:(NSString*)path intermediate:(BOOL)intermediate {
-    return [_fmgr createDirectoryAtPath:path withIntermediateDirectories:intermediate attributes:nil error:nil];
+- (BOOL)mkdir:(NSString*)dir intermediate:(BOOL)intermediate {
+    return [_fmgr createDirectoryAtPath:dir withIntermediateDirectories:intermediate attributes:nil error:nil];
 }
 
 - (BOOL)exists:(NSString*)path {
     return [_fmgr fileExistsAtPath:path];
 }
 
-- (BOOL)existsDir:(NSString*)path {
-    BOOL dir;
-    BOOL ret = [_fmgr fileExistsAtPath:path isDirectory:&dir];
-    if (ret && dir)
-        return YES;
-    return NO;
+- (BOOL)existsDir:(NSString*)dir {
+    BOOL isDir;
+    BOOL ret = [_fmgr fileExistsAtPath:dir isDirectory:&isDir];
+    return (ret && dir);
 }
 
 - (BOOL)existsFile:(NSString*)path {
-    BOOL dir;
-    BOOL ret = [_fmgr fileExistsAtPath:path isDirectory:&dir];
-    if (ret && !dir)
-        return YES;
-    return NO;
+    BOOL isDir;
+    BOOL ret = [_fmgr fileExistsAtPath:path isDirectory:&isDir];
+    return (ret && !isDir);
 }
 
 - (BOOL)remove:(NSString *)path {
     NSError* err = nil;
     BOOL ret = [_fmgr removeItemAtPath:path error:&err];
-//    if (err)
-//        [err log];
     return ret;
 }
 
+- (NSString *)temporary:(NSString *)dir {
+    NSString *file = [NSString UUID];
+    if (dir.notEmpty) {
+        [self mkdir:dir];
+        return [dir stringByAppendingString:file];
+    }
+    else {
+        return [_tmpDir stringByAppendingString:file];
+    }
+}
+
 - (NSString*)temporary {
-    NSString* sufx = [NSString stringWithFormat:@"tmp%d%ld", (int)time(NULL), clock()];
-    return [_tmpDirectory stringByAppendingString:sufx];
-}
-
-- (NSString *)picturesTemporary {
-    NSString* sufx = [NSString stringWithFormat:@"tmp%d%ld", (int)time(NULL), clock()];
-    NSString * path = [_tmpDirectory stringByAppendingPathComponent:@"temPic"];
-    if (![self existsDir:path]) {
-        [self mkdir:path];
-    }
-    return [path stringByAppendingPathComponent:sufx];
-}
-
-- (BOOL)removePicturesTemporaryFiles {
-    return [self remove:[_tmpDirectory stringByAppendingPathComponent:@"temPic"]];
-}
-
-- (NSString *)chatDirectoryWithName:(NSString *)name {
-    NSString * path = [_rootWritable stringByAppendingPathComponent:@"chat"];
-    if (![self existsDir:path]) {
-        [self mkdir:path];
-    }
-    return [path stringByAppendingPathComponent:name];
-}
-
-- (BOOL)removeChatPicturesWithName:(NSString *)name {
-    return [self remove:[[_rootWritable stringByAppendingPathComponent:@"chat"] stringByAppendingPathComponent:name]];
+    return [self temporary:nil];
 }
 
 @end

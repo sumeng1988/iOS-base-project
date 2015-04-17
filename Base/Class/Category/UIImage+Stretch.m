@@ -24,13 +24,4 @@
     return [image resizableImageWithCapInsets:capInsets];
 }
 
-+ (UIImage *)imageWithContentOfNamed:(NSString*)name {
-    return [self imageWithContentOfNamed:name ofType:@"png"];
-}
-
-+ (UIImage *)imageWithContentOfNamed:(NSString*)name ofType:(NSString *)ext {
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:ext];
-    return [self imageWithContentsOfFile:path];
-}
-
 @end

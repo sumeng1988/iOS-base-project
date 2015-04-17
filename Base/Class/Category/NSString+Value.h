@@ -10,6 +10,8 @@
 
 @interface NSString (Value)
 
++ (NSString*)UUID;
+
 - (BOOL)notEmpty;
 
 @end

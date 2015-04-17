@@ -44,7 +44,6 @@
 		7E7E83EB1AE00768007C3D7F /* PSTGridLayoutRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E83DD1AE00768007C3D7F /* PSTGridLayoutRow.m */; };
 		7E7E83EC1AE00768007C3D7F /* PSTGridLayoutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E83DF1AE00768007C3D7F /* PSTGridLayoutSection.m */; };
 		7E7E83EF1AE007CA007C3D7F /* Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E83EE1AE007CA007C3D7F /* Keyboard.m */; };
-		7E7E83F21AE008D0007C3D7F /* SMImageLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E83F11AE008D0007C3D7F /* SMImageLibrary.m */; };
 		7E7E83F51AE00A78007C3D7F /* SMHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E83F41AE00A78007C3D7F /* SMHud.m */; };
 		7E7E83F91AE010B9007C3D7F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7E83F61AE0103C007C3D7F /* libsqlite3.dylib */; };
 		7E7E84031AE01620007C3D7F /* UITableViewControllerExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E83FC1AE01620007C3D7F /* UITableViewControllerExt.m */; };
@@ -54,6 +53,7 @@
 		7E7E84141AE02E58007C3D7F /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E840C1AE02E58007C3D7F /* ALView+PureLayout.m */; };
 		7E7E84151AE02E58007C3D7F /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E840E1AE02E58007C3D7F /* NSArray+PureLayout.m */; };
 		7E7E84161AE02E58007C3D7F /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E84101AE02E58007C3D7F /* NSLayoutConstraint+PureLayout.m */; };
+		7EAC8BE31AE0A46900DB9C4C /* SMImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */; };
 		7EB2DD4E1ADFC80F00D3C265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD4D1ADFC80F00D3C265 /* main.m */; };
 		7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD501ADFC80F00D3C265 /* AppDelegate.m */; };
 		7EB2DD541ADFC80F00D3C265 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD531ADFC80F00D3C265 /* ViewController.m */; };
@@ -200,8 +200,6 @@
 		7E7E83DF1AE00768007C3D7F /* PSTGridLayoutSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTGridLayoutSection.m; sourceTree = "<group>"; };
 		7E7E83ED1AE007CA007C3D7F /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
 		7E7E83EE1AE007CA007C3D7F /* Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keyboard.m; sourceTree = "<group>"; };
-		7E7E83F01AE008D0007C3D7F /* SMImageLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImageLibrary.h; sourceTree = "<group>"; };
-		7E7E83F11AE008D0007C3D7F /* SMImageLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImageLibrary.m; sourceTree = "<group>"; };
 		7E7E83F31AE00A78007C3D7F /* SMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHud.h; sourceTree = "<group>"; };
 		7E7E83F41AE00A78007C3D7F /* SMHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHud.m; sourceTree = "<group>"; };
 		7E7E83F61AE0103C007C3D7F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -222,6 +220,8 @@
 		7E7E84111AE02E58007C3D7F /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		7E7E84121AE02E58007C3D7F /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		7E7E84131AE02E58007C3D7F /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		7EAC8BE11AE0A46900DB9C4C /* SMImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImagePicker.h; sourceTree = "<group>"; };
+		7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImagePicker.m; sourceTree = "<group>"; };
 		7EB2DD481ADFC80F00D3C265 /* Base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Base.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB2DD4C1ADFC80F00D3C265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EB2DD4D1ADFC80F00D3C265 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -621,8 +621,8 @@
 			children = (
 				7E7E83F31AE00A78007C3D7F /* SMHud.h */,
 				7E7E83F41AE00A78007C3D7F /* SMHud.m */,
-				7E7E83F01AE008D0007C3D7F /* SMImageLibrary.h */,
-				7E7E83F11AE008D0007C3D7F /* SMImageLibrary.m */,
+				7EAC8BE11AE0A46900DB9C4C /* SMImagePicker.h */,
+				7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -901,6 +901,7 @@
 				7E7E83E01AE00768007C3D7F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				7EB2DDB81ADFF40900D3C265 /* UIColor+Hex.m in Sources */,
 				7E7E83711AE00573007C3D7F /* SDWebImageManager.m in Sources */,
+				7EAC8BE31AE0A46900DB9C4C /* SMImagePicker.m in Sources */,
 				7E7E83E91AE00768007C3D7F /* PSTGridLayoutInfo.m in Sources */,
 				7EB2DE091ADFFC7E00D3C265 /* ELCAssetTablePicker.m in Sources */,
 				7E7E83EA1AE00768007C3D7F /* PSTGridLayoutItem.m in Sources */,
@@ -961,7 +962,6 @@
 				7EB2DD4E1ADFC80F00D3C265 /* main.m in Sources */,
 				7EB2DE2C1AE0017600D3C265 /* FMDatabaseQueue.m in Sources */,
 				7EB2DDB51ADFF2A900D3C265 /* NSMutableData+Value.m in Sources */,
-				7E7E83F21AE008D0007C3D7F /* SMImageLibrary.m in Sources */,
 				7E7E83C01AE005ED007C3D7F /* MWTapDetectingImageView.m in Sources */,
 				7E7E83EB1AE00768007C3D7F /* PSTGridLayoutRow.m in Sources */,
 				7E7E83E61AE00768007C3D7F /* PSTCollectionViewItemKey.m in Sources */,

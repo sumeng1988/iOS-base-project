@@ -10,31 +10,23 @@
 
 @interface FileSystem : NSObject
 
-@property (nonatomic, copy) NSString* bundleDirectory;
-@property (nonatomic, copy) NSString* cacheDirectory;
-@property (nonatomic, copy) NSString* rootWritable;
-@property (nonatomic, copy) NSString* tmpDirectory;
+@property (nonatomic, copy, readonly) NSString *bundleDir;
+@property (nonatomic, copy, readonly) NSString *documentDir;
+@property (nonatomic, copy, readonly) NSString *cacheDir;
+@property (nonatomic, copy, readonly) NSString *tmpDir;
 
 SHARED_DECL
 
-- (NSString*)pathWritable:(NSString*)name;
-- (NSString*)pathBundle:(NSString*)name;
-- (NSString*)dirCache:(NSString*)name;
+- (BOOL)mkdir:(NSString *)dir;
+- (BOOL)mkdir:(NSString *)dir intermediate:(BOOL)intermediate;
 
-- (BOOL)mkdir:(NSString*)path;
-- (BOOL)mkdir:(NSString *)path intermediate:(BOOL)intermediate;
+- (BOOL)exists:(NSString *)path;
+- (BOOL)existsDir:(NSString *)dir;
+- (BOOL)existsFile:(NSString *)path;
 
-- (BOOL)exists:(NSString*)path;
-- (BOOL)existsDir:(NSString*)path;
-- (BOOL)existsFile:(NSString*)path;
+- (BOOL)remove:(NSString *)path;
 
-- (BOOL)remove:(NSString*)path;
-
-- (NSString*)temporary;
-- (NSString *)picturesTemporary;
-- (BOOL)removePicturesTemporaryFiles;
-
-- (NSString *)chatDirectoryWithName:(NSString *)name;
-- (BOOL)removeChatPicturesWithName:(NSString *)name;
+- (NSString *)temporary:(NSString *)dir;
+- (NSString *)temporary;
 
 @end
