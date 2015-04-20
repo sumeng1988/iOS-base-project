@@ -67,6 +67,9 @@
             imagePicker.modalPresentationStyle = UIModalPresentationFormSheet;
             [_vc presentViewController:imagePicker animated:YES completion:nil];
         }
+        else {
+            [SMHud text:@"inavailable"];
+        }
     }
     else {
         ELCImagePickerController *picker = [[ELCImagePickerController alloc] initImagePicker];
@@ -96,7 +99,7 @@
         return;
     }
     
-    UIImagePickerControllerSourceType sourceType = (buttonIndex == 1 ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary);
+    UIImagePickerControllerSourceType sourceType = (buttonIndex == 1 ? UIImagePickerControllerSourceTypePhotoLibrary : UIImagePickerControllerSourceTypeCamera);
     [self execute:sourceType inViewController:_vc];
 }
 
@@ -114,11 +117,16 @@
     [_paths removeAllObjects];
     [_paths addObject:[self temporary]];
     [UIImageJPEGRepresentation(image, 0.7) writeToFile:_paths.firstObject atomically:YES];
-    image = [image resize:_thumbSize contentMode:_thumbMode];
+    
+    NSArray *thumbImages = nil;
+    UIImage *thumbImage = [image resize:_thumbSize contentMode:_thumbMode];
+    if (thumbImage != nil) {
+        thumbImages = @[thumbImage];
+    }
     
     [picker dismissViewControllerAnimated:YES completion:^{
         if (_delegate && [_delegate respondsToSelector:@selector(imagePicker:successed:)]) {
-            [_delegate imagePicker:self successed:@[image]];
+            [_delegate imagePicker:self successed:thumbImages];
         }
     }];
 }

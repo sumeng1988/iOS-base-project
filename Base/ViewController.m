@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ApiDemo.h"
 
-@interface ViewController ()
+@interface ViewController () <SMImagePickerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datas;
 @property (nonatomic, strong) SMImagePicker *picker;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -22,10 +24,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"Base";
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"take photo" style:UIBarButtonItemStylePlain target:self action:@selector(takePhoto)];
+    
     _datas = [[NSMutableArray alloc] init];
     
-    _picker = [[SMImagePicker alloc] initWithDelegate:nil];
-    [_picker executeInViewController:self];
+    _picker = [[SMImagePicker alloc] initWithDelegate:self];
+    _picker.maxCount = 3;
 }
 
 - (void)refresh:(BOOL)flush {
@@ -43,6 +47,12 @@
         self.needPullFlush = _datas.count < 10;
         self.needPullLoadmore = YES;
     });
+}
+
+#pragma mark - private
+
+- (void)takePhoto {
+    [_picker executeInViewController:self];
 }
 
 #pragma mark - UITableViewDataSource
@@ -68,6 +78,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 44;
+}
+
+#pragma mark - SMImagePickerDelegate
+
+- (void)imagePicker:(SMImagePicker *)picker successed:(NSArray *)thumbImages
+{
+    ApiDemo *api = [[ApiDemo alloc] init];
+    api.username = @"demo";
+    api.password = @"123";
+    api.avatar = picker.paths[0];
+    [api post:nil failure:nil];
 }
 
 @end
