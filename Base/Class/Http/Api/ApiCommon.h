@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ApiRspMeta : NSObject
+@interface ApiRspObj : NSObject
+
+- (void)parseDict:(NSDictionary *)dict;
+
++ (NSMutableArray *)parseArray:(NSArray *)array cls:(Class)cls;
+
+@end
+
+@interface ApiRspMeta : ApiRspObj
 
 @property (nonatomic, assign) int code;
 @property (nonatomic, strong) NSString *error;
@@ -16,7 +24,7 @@
 
 @end
 
-@interface ApiResponse : NSObject
+@interface ApiResponse : ApiRspObj
 
 @property (nonatomic, strong) ApiRspMeta *meta;
 @property (nonatomic, strong) id data;

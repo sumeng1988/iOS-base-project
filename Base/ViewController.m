@@ -88,7 +88,7 @@
     api.username = @"demo";
     api.password = @"123";
     api.avatar = picker.paths[0];
-    [api post:nil failure:nil];
+    [api POST:nil failure:nil];
 }
 
 @end

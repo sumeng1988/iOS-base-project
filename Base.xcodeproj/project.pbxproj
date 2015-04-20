@@ -645,9 +645,9 @@
 				7EB2DD851ADFCA5D00D3C265 /* Context */,
 				7EB2DD8C1ADFCA5D00D3C265 /* Controller */,
 				7E1716F21AE11C3B0091E09C /* Http */,
-				7EB2DDC81ADFFBCF00D3C265 /* Libs */,
 				7EB2DD8F1ADFCA5D00D3C265 /* Utility */,
 				7EB2DD901ADFCA5D00D3C265 /* Widget */,
+				7EB2DDC81ADFFBCF00D3C265 /* Libs */,
 			);
 			path = Class;
 			sourceTree = "<group>";

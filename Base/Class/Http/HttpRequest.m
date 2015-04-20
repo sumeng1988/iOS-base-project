@@ -8,7 +8,7 @@
 
 #import "HttpRequest.h"
 
-#define kHttpBaseUrl @"http://www.baidu.com"
+#define kHttpBaseUrl @"http://www.weather.com.cn/"
 
 @implementation HttpRequest
 
@@ -18,6 +18,8 @@ SHARED_IMPL
     self = [super init];
     if (self) {
         _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kHttpBaseUrl]];
+        
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     }
     return self;
 }

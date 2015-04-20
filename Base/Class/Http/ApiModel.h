@@ -15,11 +15,22 @@
 @property (nonatomic, assign) BOOL showErrMsg;
 @property (nonatomic, strong) UIView *waitingView;
 
-- (void)get:(void (^)(ApiResponse *response))success
+@property (nonatomic, assign) Class clsRspDataGET;
+@property (nonatomic, assign) Class clsRspDataPOST;
+@property (nonatomic, assign) Class clsRspDataPUT;
+@property (nonatomic, assign) Class clsRspDataDELETE;
+
+- (void)GET:(void (^)(ApiResponse *response))success
     failure:(void (^)(ApiRspMeta *meta))failure;
 
-- (void)post:(void (^)(ApiResponse *response))success
+- (void)POST:(void (^)(ApiResponse *response))success
     failure:(void (^)(ApiRspMeta *meta))failure;
+
+- (void)PUT:(void (^)(ApiResponse *response))success
+     failure:(void (^)(ApiRspMeta *meta))failure;
+
+- (void)DELETE:(void (^)(ApiResponse *response))success
+     failure:(void (^)(ApiRspMeta *meta))failure;
 
 @end
 
