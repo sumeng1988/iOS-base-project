@@ -12,6 +12,7 @@
 #import "HardwareInfo.h"
 #import "Keyboard.h"
 #import "Category.h"
+#import "Swizzle.h"
 #import "Context.h"
 
 #import "SMHud.h"

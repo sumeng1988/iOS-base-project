@@ -76,17 +76,6 @@
 		7EB2DD961ADFCA5D00D3C265 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD871ADFCA5D00D3C265 /* App.m */; };
 		7EB2DD971ADFCA5D00D3C265 /* Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD891ADFCA5D00D3C265 /* Context.m */; };
 		7EB2DD981ADFCA5D00D3C265 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD8B1ADFCA5D00D3C265 /* Device.m */; };
-		7EB2DDA61ADFF10500D3C265 /* NSObject+Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDA51ADFF10500D3C265 /* NSObject+Attachment.m */; };
-		7EB2DDA91ADFF17200D3C265 /* NSString+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDA81ADFF17200D3C265 /* NSString+Value.m */; };
-		7EB2DDAC1ADFF1DB00D3C265 /* NSDictionary+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDAB1ADFF1DB00D3C265 /* NSDictionary+Value.m */; };
-		7EB2DDAF1ADFF22C00D3C265 /* NSMutableDictionary+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDAE1ADFF22C00D3C265 /* NSMutableDictionary+Value.m */; };
-		7EB2DDB21ADFF26800D3C265 /* NSData+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDB11ADFF26800D3C265 /* NSData+Value.m */; };
-		7EB2DDB51ADFF2A900D3C265 /* NSMutableData+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDB41ADFF2A900D3C265 /* NSMutableData+Value.m */; };
-		7EB2DDB81ADFF40900D3C265 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDB71ADFF40900D3C265 /* UIColor+Hex.m */; };
-		7EB2DDBB1ADFF49000D3C265 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDBA1ADFF49000D3C265 /* UIView+Frame.m */; };
-		7EB2DDBE1ADFF50100D3C265 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDBD1ADFF50100D3C265 /* UIImage+Resize.m */; };
-		7EB2DDC11ADFF5E600D3C265 /* UIImage+Stretch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDC01ADFF5E600D3C265 /* UIImage+Stretch.m */; };
-		7EB2DDC71ADFFA0400D3C265 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDC61ADFFA0400D3C265 /* UIControl+Blocks.m */; };
 		7EB2DE061ADFFC7E00D3C265 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDF01ADFFC7E00D3C265 /* ELCAlbumPickerController.m */; };
 		7EB2DE071ADFFC7E00D3C265 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDF21ADFFC7E00D3C265 /* ELCAsset.m */; };
 		7EB2DE081ADFFC7E00D3C265 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DDF41ADFFC7E00D3C265 /* ELCAssetCell.m */; };
@@ -118,6 +107,18 @@
 		7EB2DE541AE0031700D3C265 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DE461AE0031700D3C265 /* UIScrollView+MJExtension.m */; };
 		7EB2DE551AE0031700D3C265 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DE481AE0031700D3C265 /* UIScrollView+MJRefresh.m */; };
 		7EB2DE561AE0031700D3C265 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DE4A1AE0031700D3C265 /* UIView+MJExtension.m */; };
+		7EB738861AE5FFF6000136E3 /* NSData+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738711AE5FFF6000136E3 /* NSData+Value.m */; };
+		7EB738871AE5FFF6000136E3 /* NSDictionary+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738731AE5FFF6000136E3 /* NSDictionary+Value.m */; };
+		7EB738881AE5FFF6000136E3 /* NSMutableData+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738751AE5FFF6000136E3 /* NSMutableData+Value.m */; };
+		7EB738891AE5FFF6000136E3 /* NSMutableDictionary+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738771AE5FFF6000136E3 /* NSMutableDictionary+Value.m */; };
+		7EB7388A1AE5FFF6000136E3 /* NSObject+Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738791AE5FFF6000136E3 /* NSObject+Attachment.m */; };
+		7EB7388B1AE5FFF6000136E3 /* NSString+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7387B1AE5FFF6000136E3 /* NSString+Value.m */; };
+		7EB7388C1AE5FFF6000136E3 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7387D1AE5FFF6000136E3 /* UIColor+Hex.m */; };
+		7EB7388D1AE5FFF6000136E3 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7387F1AE5FFF6000136E3 /* UIControl+Blocks.m */; };
+		7EB7388E1AE5FFF6000136E3 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738811AE5FFF6000136E3 /* UIImage+Resize.m */; };
+		7EB7388F1AE5FFF6000136E3 /* UIImage+Stretch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */; };
+		7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738851AE5FFF6000136E3 /* UIView+Frame.m */; };
+		7EB738941AE60025000136E3 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738931AE60025000136E3 /* NSObject+Swizzle.m */; };
 		7EE3990D1AE123280069DAC2 /* ApiCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990C1AE123280069DAC2 /* ApiCommon.m */; };
 		7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */; };
 /* End PBXBuildFile section */
@@ -283,29 +284,6 @@
 		7EB2DD8B1ADFCA5D00D3C265 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		7EB2DD991ADFDAAB00D3C265 /* Base-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Base-Prefix.pch"; sourceTree = "<group>"; };
 		7EB2DD9A1ADFDADF00D3C265 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
-		7EB2DDA11ADFF0E000D3C265 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		7EB2DDA41ADFF10500D3C265 /* NSObject+Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Attachment.h"; sourceTree = "<group>"; };
-		7EB2DDA51ADFF10500D3C265 /* NSObject+Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Attachment.m"; sourceTree = "<group>"; };
-		7EB2DDA71ADFF17200D3C265 /* NSString+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Value.h"; sourceTree = "<group>"; };
-		7EB2DDA81ADFF17200D3C265 /* NSString+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Value.m"; sourceTree = "<group>"; };
-		7EB2DDAA1ADFF1DB00D3C265 /* NSDictionary+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Value.h"; sourceTree = "<group>"; };
-		7EB2DDAB1ADFF1DB00D3C265 /* NSDictionary+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Value.m"; sourceTree = "<group>"; };
-		7EB2DDAD1ADFF22C00D3C265 /* NSMutableDictionary+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Value.h"; sourceTree = "<group>"; };
-		7EB2DDAE1ADFF22C00D3C265 /* NSMutableDictionary+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Value.m"; sourceTree = "<group>"; };
-		7EB2DDB01ADFF26800D3C265 /* NSData+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Value.h"; sourceTree = "<group>"; };
-		7EB2DDB11ADFF26800D3C265 /* NSData+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Value.m"; sourceTree = "<group>"; };
-		7EB2DDB31ADFF2A900D3C265 /* NSMutableData+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Value.h"; sourceTree = "<group>"; };
-		7EB2DDB41ADFF2A900D3C265 /* NSMutableData+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Value.m"; sourceTree = "<group>"; };
-		7EB2DDB61ADFF40900D3C265 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		7EB2DDB71ADFF40900D3C265 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		7EB2DDB91ADFF49000D3C265 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		7EB2DDBA1ADFF49000D3C265 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		7EB2DDBC1ADFF50100D3C265 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		7EB2DDBD1ADFF50100D3C265 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		7EB2DDBF1ADFF5E600D3C265 /* UIImage+Stretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Stretch.h"; sourceTree = "<group>"; };
-		7EB2DDC01ADFF5E600D3C265 /* UIImage+Stretch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretch.m"; sourceTree = "<group>"; };
-		7EB2DDC51ADFFA0400D3C265 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
-		7EB2DDC61ADFFA0400D3C265 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
 		7EB2DDEF1ADFFC7E00D3C265 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
 		7EB2DDF01ADFFC7E00D3C265 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
 		7EB2DDF11ADFFC7E00D3C265 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
@@ -367,6 +345,32 @@
 		7EB2DE481AE0031700D3C265 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		7EB2DE491AE0031700D3C265 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		7EB2DE4A1AE0031700D3C265 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		7EB7386F1AE5FFF6000136E3 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		7EB738701AE5FFF6000136E3 /* NSData+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Value.h"; sourceTree = "<group>"; };
+		7EB738711AE5FFF6000136E3 /* NSData+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Value.m"; sourceTree = "<group>"; };
+		7EB738721AE5FFF6000136E3 /* NSDictionary+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Value.h"; sourceTree = "<group>"; };
+		7EB738731AE5FFF6000136E3 /* NSDictionary+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Value.m"; sourceTree = "<group>"; };
+		7EB738741AE5FFF6000136E3 /* NSMutableData+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Value.h"; sourceTree = "<group>"; };
+		7EB738751AE5FFF6000136E3 /* NSMutableData+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Value.m"; sourceTree = "<group>"; };
+		7EB738761AE5FFF6000136E3 /* NSMutableDictionary+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Value.h"; sourceTree = "<group>"; };
+		7EB738771AE5FFF6000136E3 /* NSMutableDictionary+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Value.m"; sourceTree = "<group>"; };
+		7EB738781AE5FFF6000136E3 /* NSObject+Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Attachment.h"; sourceTree = "<group>"; };
+		7EB738791AE5FFF6000136E3 /* NSObject+Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Attachment.m"; sourceTree = "<group>"; };
+		7EB7387A1AE5FFF6000136E3 /* NSString+Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Value.h"; sourceTree = "<group>"; };
+		7EB7387B1AE5FFF6000136E3 /* NSString+Value.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Value.m"; sourceTree = "<group>"; };
+		7EB7387C1AE5FFF6000136E3 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		7EB7387D1AE5FFF6000136E3 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		7EB7387E1AE5FFF6000136E3 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
+		7EB7387F1AE5FFF6000136E3 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
+		7EB738801AE5FFF6000136E3 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		7EB738811AE5FFF6000136E3 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		7EB738821AE5FFF6000136E3 /* UIImage+Stretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Stretch.h"; sourceTree = "<group>"; };
+		7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretch.m"; sourceTree = "<group>"; };
+		7EB738841AE5FFF6000136E3 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		7EB738851AE5FFF6000136E3 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		7EB738921AE60025000136E3 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
+		7EB738931AE60025000136E3 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		7EB738951AE600F2000136E3 /* Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swizzle.h; sourceTree = "<group>"; };
 		7EE3990B1AE123280069DAC2 /* ApiCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCommon.h; sourceTree = "<group>"; };
 		7EE3990C1AE123280069DAC2 /* ApiCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCommon.m; sourceTree = "<group>"; };
 		7EE3990E1AE1249D0069DAC2 /* ApiDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDemo.h; sourceTree = "<group>"; };
@@ -640,7 +644,6 @@
 		7EB2DD791ADFCA5D00D3C265 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				7EB2DDA01ADFF0CE00D3C265 /* Category */,
 				7EB2DD7A1ADFCA5D00D3C265 /* Common */,
 				7EB2DD851ADFCA5D00D3C265 /* Context */,
 				7EB2DD8C1ADFCA5D00D3C265 /* Controller */,
@@ -655,6 +658,8 @@
 		7EB2DD7A1ADFCA5D00D3C265 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7EB7386E1AE5FFF6000136E3 /* Category */,
+				7EB738911AE6000F000136E3 /* Swizzle */,
 				7EB2DD7B1ADFCA5D00D3C265 /* Compiler.h */,
 				7EB2DD7D1ADFCA5D00D3C265 /* FileSystem.h */,
 				7EB2DD7E1ADFCA5D00D3C265 /* FileSystem.m */,
@@ -703,36 +708,6 @@
 			children = (
 			);
 			path = Widget;
-			sourceTree = "<group>";
-		};
-		7EB2DDA01ADFF0CE00D3C265 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				7EB2DDA11ADFF0E000D3C265 /* Category.h */,
-				7EB2DDA41ADFF10500D3C265 /* NSObject+Attachment.h */,
-				7EB2DDA51ADFF10500D3C265 /* NSObject+Attachment.m */,
-				7EB2DDA71ADFF17200D3C265 /* NSString+Value.h */,
-				7EB2DDA81ADFF17200D3C265 /* NSString+Value.m */,
-				7EB2DDAA1ADFF1DB00D3C265 /* NSDictionary+Value.h */,
-				7EB2DDAB1ADFF1DB00D3C265 /* NSDictionary+Value.m */,
-				7EB2DDAD1ADFF22C00D3C265 /* NSMutableDictionary+Value.h */,
-				7EB2DDAE1ADFF22C00D3C265 /* NSMutableDictionary+Value.m */,
-				7EB2DDB01ADFF26800D3C265 /* NSData+Value.h */,
-				7EB2DDB11ADFF26800D3C265 /* NSData+Value.m */,
-				7EB2DDB31ADFF2A900D3C265 /* NSMutableData+Value.h */,
-				7EB2DDB41ADFF2A900D3C265 /* NSMutableData+Value.m */,
-				7EB2DDB61ADFF40900D3C265 /* UIColor+Hex.h */,
-				7EB2DDB71ADFF40900D3C265 /* UIColor+Hex.m */,
-				7EB2DDB91ADFF49000D3C265 /* UIView+Frame.h */,
-				7EB2DDBA1ADFF49000D3C265 /* UIView+Frame.m */,
-				7EB2DDBF1ADFF5E600D3C265 /* UIImage+Stretch.h */,
-				7EB2DDC01ADFF5E600D3C265 /* UIImage+Stretch.m */,
-				7EB2DDBC1ADFF50100D3C265 /* UIImage+Resize.h */,
-				7EB2DDBD1ADFF50100D3C265 /* UIImage+Resize.m */,
-				7EB2DDC51ADFFA0400D3C265 /* UIControl+Blocks.h */,
-				7EB2DDC61ADFFA0400D3C265 /* UIControl+Blocks.m */,
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		7EB2DDC81ADFFBCF00D3C265 /* Libs */ = {
@@ -855,6 +830,46 @@
 				7EB2DE4A1AE0031700D3C265 /* UIView+MJExtension.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		7EB7386E1AE5FFF6000136E3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7EB7386F1AE5FFF6000136E3 /* Category.h */,
+				7EB738701AE5FFF6000136E3 /* NSData+Value.h */,
+				7EB738711AE5FFF6000136E3 /* NSData+Value.m */,
+				7EB738721AE5FFF6000136E3 /* NSDictionary+Value.h */,
+				7EB738731AE5FFF6000136E3 /* NSDictionary+Value.m */,
+				7EB738741AE5FFF6000136E3 /* NSMutableData+Value.h */,
+				7EB738751AE5FFF6000136E3 /* NSMutableData+Value.m */,
+				7EB738761AE5FFF6000136E3 /* NSMutableDictionary+Value.h */,
+				7EB738771AE5FFF6000136E3 /* NSMutableDictionary+Value.m */,
+				7EB738781AE5FFF6000136E3 /* NSObject+Attachment.h */,
+				7EB738791AE5FFF6000136E3 /* NSObject+Attachment.m */,
+				7EB7387A1AE5FFF6000136E3 /* NSString+Value.h */,
+				7EB7387B1AE5FFF6000136E3 /* NSString+Value.m */,
+				7EB7387C1AE5FFF6000136E3 /* UIColor+Hex.h */,
+				7EB7387D1AE5FFF6000136E3 /* UIColor+Hex.m */,
+				7EB7387E1AE5FFF6000136E3 /* UIControl+Blocks.h */,
+				7EB7387F1AE5FFF6000136E3 /* UIControl+Blocks.m */,
+				7EB738801AE5FFF6000136E3 /* UIImage+Resize.h */,
+				7EB738811AE5FFF6000136E3 /* UIImage+Resize.m */,
+				7EB738821AE5FFF6000136E3 /* UIImage+Stretch.h */,
+				7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */,
+				7EB738841AE5FFF6000136E3 /* UIView+Frame.h */,
+				7EB738851AE5FFF6000136E3 /* UIView+Frame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7EB738911AE6000F000136E3 /* Swizzle */ = {
+			isa = PBXGroup;
+			children = (
+				7EB738951AE600F2000136E3 /* Swizzle.h */,
+				7EB738921AE60025000136E3 /* NSObject+Swizzle.h */,
+				7EB738931AE60025000136E3 /* NSObject+Swizzle.m */,
+			);
+			path = Swizzle;
 			sourceTree = "<group>";
 		};
 		7EE3990A1AE1231E0069DAC2 /* Api */ = {
@@ -983,7 +998,6 @@
 				7E7E83E51AE00768007C3D7F /* PSTCollectionViewFlowLayout.m in Sources */,
 				7EB2DE071ADFFC7E00D3C265 /* ELCAsset.m in Sources */,
 				7E7E83E01AE00768007C3D7F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
-				7EB2DDB81ADFF40900D3C265 /* UIColor+Hex.m in Sources */,
 				7E7E83711AE00573007C3D7F /* SDWebImageManager.m in Sources */,
 				7E1716EB1AE1170A0091E09C /* AFHTTPSessionManager.m in Sources */,
 				7EAC8BE31AE0A46900DB9C4C /* SMImagePicker.m in Sources */,
@@ -993,7 +1007,9 @@
 				7E1716E91AE1170A0091E09C /* AFHTTPRequestOperation.m in Sources */,
 				7E1716EE1AE1170A0091E09C /* AFURLConnectionOperation.m in Sources */,
 				7E1716EA1AE1170A0091E09C /* AFHTTPRequestOperationManager.m in Sources */,
+				7EB7388B1AE5FFF6000136E3 /* NSString+Value.m in Sources */,
 				7E1716F81AE11CA10091E09C /* ApiModel.m in Sources */,
+				7EB7388E1AE5FFF6000136E3 /* UIImage+Resize.m in Sources */,
 				7EB2DE081ADFFC7E00D3C265 /* ELCAssetCell.m in Sources */,
 				7E7E83E31AE00768007C3D7F /* PSTCollectionViewController.m in Sources */,
 				7E7E83EF1AE007CA007C3D7F /* Keyboard.m in Sources */,
@@ -1002,31 +1018,32 @@
 				7EB2DE311AE001E900D3C265 /* MBProgressHUD.m in Sources */,
 				7EB2DD961ADFCA5D00D3C265 /* App.m in Sources */,
 				7EB2DE291AE0017600D3C265 /* FMDatabase.m in Sources */,
-				7EB2DDAF1ADFF22C00D3C265 /* NSMutableDictionary+Value.m in Sources */,
 				7E7E83E11AE00768007C3D7F /* PSTCollectionView.m in Sources */,
 				7EB2DE551AE0031700D3C265 /* UIScrollView+MJRefresh.m in Sources */,
 				7E7E83E71AE00768007C3D7F /* PSTCollectionViewLayout.m in Sources */,
 				7E7E836F1AE00573007C3D7F /* SDWebImageDownloader.m in Sources */,
 				7EB2DE541AE0031700D3C265 /* UIScrollView+MJExtension.m in Sources */,
+				7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */,
+				7EB738891AE5FFF6000136E3 /* NSMutableDictionary+Value.m in Sources */,
 				7EB2DE501AE0031700D3C265 /* MJRefreshGifHeader.m in Sources */,
 				7E7E83BC1AE005ED007C3D7F /* MWGridCell.m in Sources */,
-				7EB2DDBE1ADFF50100D3C265 /* UIImage+Resize.m in Sources */,
 				7E7E83E81AE00768007C3D7F /* PSTCollectionViewUpdateItem.m in Sources */,
 				7E7E836B1AE00573007C3D7F /* NSData+ImageContentType.m in Sources */,
-				7EB2DDA91ADFF17200D3C265 /* NSString+Value.m in Sources */,
+				7EB7388D1AE5FFF6000136E3 /* UIControl+Blocks.m in Sources */,
+				7EB738941AE60025000136E3 /* NSObject+Swizzle.m in Sources */,
 				7E7E83C11AE005ED007C3D7F /* MWTapDetectingView.m in Sources */,
+				7EB738871AE5FFF6000136E3 /* NSDictionary+Value.m in Sources */,
 				7EB2DE0B1ADFFC7E00D3C265 /* ELCImagePickerController.m in Sources */,
 				7E7E83BD1AE005ED007C3D7F /* MWGridViewController.m in Sources */,
 				7EB2DE531AE0031700D3C265 /* MJRefreshLegendHeader.m in Sources */,
-				7EB2DDA61ADFF10500D3C265 /* NSObject+Attachment.m in Sources */,
 				7E7E83751AE00573007C3D7F /* UIImage+MultiFormat.m in Sources */,
 				7E7E837C1AE005C9007C3D7F /* DACircularProgressView.m in Sources */,
 				7EB2DE2B1AE0017600D3C265 /* FMDatabasePool.m in Sources */,
 				7E7E83771AE00573007C3D7F /* UIImageView+WebCache.m in Sources */,
+				7EB738881AE5FFF6000136E3 /* NSMutableData+Value.m in Sources */,
 				7E1716ED1AE1170A0091E09C /* AFSecurityPolicy.m in Sources */,
 				7E7E84161AE02E58007C3D7F /* NSLayoutConstraint+PureLayout.m in Sources */,
 				7E7E83731AE00573007C3D7F /* UIButton+WebCache.m in Sources */,
-				7EB2DDC71ADFFA0400D3C265 /* UIControl+Blocks.m in Sources */,
 				7E7E84141AE02E58007C3D7F /* ALView+PureLayout.m in Sources */,
 				7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */,
 				7E7E83721AE00573007C3D7F /* SDWebImagePrefetcher.m in Sources */,
@@ -1036,25 +1053,21 @@
 				7E7E836D1AE00573007C3D7F /* SDWebImageCompat.m in Sources */,
 				7E7E84051AE01620007C3D7F /* UIViewControllerExt.m in Sources */,
 				7E7E83BB1AE005ED007C3D7F /* MWCaptionView.m in Sources */,
-				7EB2DDAC1ADFF1DB00D3C265 /* NSDictionary+Value.m in Sources */,
 				7EB2DD921ADFCA5D00D3C265 /* FileSystem.m in Sources */,
 				7E1716EF1AE1170A0091E09C /* AFURLRequestSerialization.m in Sources */,
 				7E7E83741AE00573007C3D7F /* UIImage+GIF.m in Sources */,
 				7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */,
 				7E7E83C21AE005ED007C3D7F /* MWZoomingScrollView.m in Sources */,
 				7EB2DE1C1AE000AC00D3C265 /* OpenUDID.m in Sources */,
-				7EB2DDB21ADFF26800D3C265 /* NSData+Value.m in Sources */,
-				7EB2DDC11ADFF5E600D3C265 /* UIImage+Stretch.m in Sources */,
 				7E7E83E21AE00768007C3D7F /* PSTCollectionViewCell.m in Sources */,
 				7E7E83761AE00573007C3D7F /* UIImageView+HighlightedWebCache.m in Sources */,
-				7EB2DDBB1ADFF49000D3C265 /* UIView+Frame.m in Sources */,
 				7E7E84091AE0181F007C3D7F /* WebViewController.m in Sources */,
 				7EB2DE561AE0031700D3C265 /* UIView+MJExtension.m in Sources */,
 				7E1716F51AE11C510091E09C /* HttpRequest.m in Sources */,
 				7EB2DD981ADFCA5D00D3C265 /* Device.m in Sources */,
 				7EB2DD4E1ADFC80F00D3C265 /* main.m in Sources */,
 				7EB2DE2C1AE0017600D3C265 /* FMDatabaseQueue.m in Sources */,
-				7EB2DDB51ADFF2A900D3C265 /* NSMutableData+Value.m in Sources */,
+				7EB7388A1AE5FFF6000136E3 /* NSObject+Attachment.m in Sources */,
 				7E7E83C01AE005ED007C3D7F /* MWTapDetectingImageView.m in Sources */,
 				7E7E83EB1AE00768007C3D7F /* PSTGridLayoutRow.m in Sources */,
 				7E7E83E61AE00768007C3D7F /* PSTCollectionViewItemKey.m in Sources */,
@@ -1064,8 +1077,10 @@
 				7E1716F01AE1170A0091E09C /* AFURLResponseSerialization.m in Sources */,
 				7E7E83F51AE00A78007C3D7F /* SMHud.m in Sources */,
 				7E7E83781AE00573007C3D7F /* UIView+WebCacheOperation.m in Sources */,
+				7EB7388F1AE5FFF6000136E3 /* UIImage+Stretch.m in Sources */,
 				7E7E83701AE00573007C3D7F /* SDWebImageDownloaderOperation.m in Sources */,
 				7E7E84151AE02E58007C3D7F /* NSArray+PureLayout.m in Sources */,
+				7EB7388C1AE5FFF6000136E3 /* UIColor+Hex.m in Sources */,
 				7E7E84041AE01620007C3D7F /* UICollectionViewControllerExt.m in Sources */,
 				7EB2DE061ADFFC7E00D3C265 /* ELCAlbumPickerController.m in Sources */,
 				7EB2DE2D1AE0017600D3C265 /* FMResultSet.m in Sources */,
@@ -1077,6 +1092,7 @@
 				7E7E83E41AE00768007C3D7F /* PSTCollectionViewData.m in Sources */,
 				7EB2DE0A1ADFFC7E00D3C265 /* ELCConsole.m in Sources */,
 				7E7E836C1AE00573007C3D7F /* SDImageCache.m in Sources */,
+				7EB738861AE5FFF6000136E3 /* NSData+Value.m in Sources */,
 				7EB2DE2A1AE0017600D3C265 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
