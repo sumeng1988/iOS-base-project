@@ -58,11 +58,11 @@
     return self;
 }
 
-//- (void)parseDict:(NSDictionary *)dict {
-//    [super parseDict:dict];
-//    
-//    self.infos = [self.class parseArray:[dict arrayForKey:@"infos"] cls:[ApiDemoRspInfo class]];
-//    self.moods = [self.class parseArray:[dict arrayForKey:@"moods"] cls:[NSString class]];
-//}
+- (void)parseDict:(NSDictionary *)dict {
+    [super parseDict:dict];
+    
+    self.infos = [self.class parseArray:[dict arrayForKey:@"infos"] cls:[ApiDemoRspInfo class]];
+    self.moods = [self.class parseArray:[dict arrayForKey:@"moods"] cls:[NSString class]];
+}
 
 @end

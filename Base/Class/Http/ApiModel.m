@@ -168,10 +168,6 @@
         [SMHud hideProgress];
     }
     
-    responseObject = [NSMutableDictionary dictionary];
-    [responseObject setObject:@[@{@"name":@"n1"},@{@"name":@"n2"}] forKey:@"data"];
-    [responseObject setObject:@{@"code":@200} forKey:@"meta"];
-    
     if ([responseObject isKindOfClass:[NSDictionary class]]) {
         ApiResponse *rsp = [[ApiResponse alloc] init];
         Class cls = nil;

@@ -23,9 +23,9 @@
 
 @end
 
-@interface ApiDemoRspData : NSMutableArray  //ApiDemoRspInfo
+@interface ApiDemoRspData : ApiRspObj
 
-//@property (nonatomic, strong) NSMutableArray *infos;  //ApiDemoRspInfo
-//@property (nonatomic, strong) NSMutableArray *moods;  //NSString
+@property (nonatomic, strong) NSMutableArray *infos;  //ApiDemoRspInfo
+@property (nonatomic, strong) NSMutableArray *moods;  //NSString
 
 @end
