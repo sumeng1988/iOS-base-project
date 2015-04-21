@@ -119,6 +119,7 @@
 		7EB7388F1AE5FFF6000136E3 /* UIImage+Stretch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */; };
 		7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738851AE5FFF6000136E3 /* UIView+Frame.m */; };
 		7EB738941AE60025000136E3 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738931AE60025000136E3 /* NSObject+Swizzle.m */; };
+		7EB7389D1AE602A2000136E3 /* Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7389C1AE602A2000136E3 /* Swizzle.m */; };
 		7EE3990D1AE123280069DAC2 /* ApiCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990C1AE123280069DAC2 /* ApiCommon.m */; };
 		7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */; };
 /* End PBXBuildFile section */
@@ -370,7 +371,8 @@
 		7EB738851AE5FFF6000136E3 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		7EB738921AE60025000136E3 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		7EB738931AE60025000136E3 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
-		7EB738951AE600F2000136E3 /* Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swizzle.h; sourceTree = "<group>"; };
+		7EB7389B1AE602A2000136E3 /* Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swizzle.h; sourceTree = "<group>"; };
+		7EB7389C1AE602A2000136E3 /* Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swizzle.m; sourceTree = "<group>"; };
 		7EE3990B1AE123280069DAC2 /* ApiCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCommon.h; sourceTree = "<group>"; };
 		7EE3990C1AE123280069DAC2 /* ApiCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCommon.m; sourceTree = "<group>"; };
 		7EE3990E1AE1249D0069DAC2 /* ApiDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDemo.h; sourceTree = "<group>"; };
@@ -865,7 +867,8 @@
 		7EB738911AE6000F000136E3 /* Swizzle */ = {
 			isa = PBXGroup;
 			children = (
-				7EB738951AE600F2000136E3 /* Swizzle.h */,
+				7EB7389B1AE602A2000136E3 /* Swizzle.h */,
+				7EB7389C1AE602A2000136E3 /* Swizzle.m */,
 				7EB738921AE60025000136E3 /* NSObject+Swizzle.h */,
 				7EB738931AE60025000136E3 /* NSObject+Swizzle.m */,
 			);
@@ -1023,6 +1026,7 @@
 				7E7E83E71AE00768007C3D7F /* PSTCollectionViewLayout.m in Sources */,
 				7E7E836F1AE00573007C3D7F /* SDWebImageDownloader.m in Sources */,
 				7EB2DE541AE0031700D3C265 /* UIScrollView+MJExtension.m in Sources */,
+				7EB7389D1AE602A2000136E3 /* Swizzle.m in Sources */,
 				7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */,
 				7EB738891AE5FFF6000136E3 /* NSMutableDictionary+Value.m in Sources */,
 				7EB2DE501AE0031700D3C265 /* MJRefreshGifHeader.m in Sources */,

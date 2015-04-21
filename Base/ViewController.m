@@ -26,10 +26,10 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"take photo" style:UIBarButtonItemStylePlain target:self action:@selector(takePhoto)];
     
-    _datas = [[NSMutableArray alloc] init];
-    
     _picker = [[SMImagePicker alloc] initWithDelegate:self];
     _picker.maxCount = 3;
+    
+    
 }
 
 - (void)refresh:(BOOL)flush {

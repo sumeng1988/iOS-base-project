@@ -11,16 +11,10 @@
 
 @implementation NSObject (Swizzle)
 
-+ (IMP)swizzleSelector:(SEL)origSelector
-               withIMP:(IMP)newIMP
-{
-    Method origMethod = class_getInstanceMethod([self class], origSelector);
-    IMP origIMP = method_getImplementation(origMethod);
-    if(!class_addMethod(self, origSelector, newIMP, method_getTypeEncoding(origMethod)))
-    {
-        method_setImplementation(origMethod, newIMP);
-    }
-    return origIMP;
++ (void)swizzleSelector:(SEL)origSel withSelector:(SEL)newSel {
+    Method origMethod = class_getInstanceMethod(self, origSel);
+    Method newMethod = class_getInstanceMethod(self, newSel);
+    method_exchangeImplementations(origMethod, newMethod);
 }
 
 @end

@@ -60,6 +60,8 @@ CGFloat kUIScreenScale = 1;
 #pragma mark - private
 
 - (void)foundationInit {
+    [Swizzle swizzles];
+    
     UIScreen* scr = [UIScreen mainScreen];
     if (scr.scale == 1) {
         kUIScreenIsRetina = NO;

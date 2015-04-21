@@ -10,7 +10,6 @@
 
 @interface NSObject (Swizzle)
 
-+ (IMP)swizzleSelector:(SEL)origSelector
-               withIMP:(IMP)newIMP;
++ (void)swizzleSelector:(SEL)origSel withSelector:(SEL)newSel;
 
 @end
