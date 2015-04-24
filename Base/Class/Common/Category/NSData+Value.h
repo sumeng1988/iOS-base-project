@@ -10,7 +10,10 @@
 
 @interface NSData (Value)
 
-- (int)readInt:(int)offset;
-- (Byte)readByte:(int)offset;
+- (int)readInt:(NSUInteger)offset;
+- (unsigned int)readUInt:(NSUInteger)offset;
+- (short)readShort:(NSUInteger)offset;
+- (unsigned short)readUShort:(NSUInteger)offset;
+- (Byte)readByte:(NSUInteger)offset;
 
 @end

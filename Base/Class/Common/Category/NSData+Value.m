@@ -10,11 +10,23 @@
 
 @implementation NSData (Value)
 
-- (int)readInt:(int)offset {
+- (int)readInt:(NSUInteger)offset {
     return *(int *)(self.bytes + offset);
 }
 
-- (Byte)readByte:(int)offset {
+- (unsigned int)readUInt:(NSUInteger)offset {
+    return *(unsigned int *)(self.bytes + offset);
+}
+
+- (short)readShort:(NSUInteger)offset {
+    return *(short *)(self.bytes + offset);
+}
+
+- (unsigned short)readUShort:(NSUInteger)offset {
+    return *(unsigned short *)(self.bytes + offset);
+}
+
+- (Byte)readByte:(NSUInteger)offset {
     return *(Byte *)(self.bytes + offset);
 }
 

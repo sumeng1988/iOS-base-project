@@ -10,9 +10,10 @@
 
 @interface NSMutableData (Value)
 
-- (NSMutableData *)appendInt:(int)val;
-- (NSMutableData *)appendByte:(Byte)val;
-- (NSMutableData *)appendCString:(char const*)str;
-- (NSMutableData *)appendString:(NSString*)str encoding:(NSStringEncoding)encoding;
+- (NSMutableData *)appendInt:(int)value;
+- (NSMutableData *)appendUInt:(unsigned int)value;
+- (NSMutableData *)appendShort:(short)value;
+- (NSMutableData *)appendUShort:(unsigned short)value;
+- (NSMutableData *)appendByte:(Byte)value;
 
 @end

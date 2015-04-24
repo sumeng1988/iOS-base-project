@@ -10,25 +10,28 @@
 
 @implementation NSMutableData (Value)
 
-- (NSMutableData *)appendInt:(int)val {
-    [self appendBytes:&val length:sizeof(int)];
+- (NSMutableData *)appendInt:(int)value {
+    [self appendBytes:&value length:sizeof(int)];
+    return self;
+}
+
+- (NSMutableData *)appendUInt:(unsigned int)value {
+    [self appendBytes:&value length:sizeof(unsigned int)];
+    return self;
+}
+
+- (NSMutableData *)appendShort:(short)value {
+    [self appendBytes:&value length:sizeof(short)];
+    return self;
+}
+
+- (NSMutableData *)appendUShort:(unsigned short)value {
+    [self appendBytes:&value length:sizeof(unsigned short)];
     return self;
 }
 
 - (NSMutableData *)appendByte:(Byte)val {
     [self appendBytes:&val length:sizeof(Byte)];
-    return self;
-}
-
-- (NSMutableData *)appendCString:(char const*)str {
-    int len = (int)strlen(str);
-    [self appendBytes:str length:len];
-    return self;
-}
-
-- (NSMutableData *)appendString:(NSString*)str encoding:(NSStringEncoding)encoding {
-    NSData* strdata = [str dataUsingEncoding:encoding];
-    [self appendData:strdata];
     return self;
 }
 
