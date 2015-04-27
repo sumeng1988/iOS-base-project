@@ -26,6 +26,8 @@
     _socket = [[SocketHelper alloc] init];
     _socket.delegate = self;
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"say hello" style:UIBarButtonItemStylePlain target:self action:@selector(sayHello)];
+    
     _isServer = (_ip == nil);
     if (_isServer) {
         [_socket accept];
@@ -42,11 +44,23 @@
 
 #pragma mark - private
 
+- (void)sayHello {
+    NSString *msg = @"hello";
+    [self insertMsg:msg];
+    [_socket send:[[self packetWithMsg:msg] data]];
+}
+
 - (void)insertMsg:(NSString *)msg {
     [_datas insertObject:msg atIndex:0];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (SocketPacket *)packetWithMsg:(NSString *)msg {
+    SocketPacketMsg *body = [[SocketPacketMsg alloc] init];
+    body.msg = msg;
+    return [SocketPacket packetWithBody:body];
 }
 
 #pragma mark - SocketHelperDelegate
@@ -57,7 +71,7 @@
     }
     NSString *msg = [NSString stringWithFormat:@"%@:%d come in", host.host, host.port];
     [self insertMsg:msg];
-    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [[self packetWithMsg:msg] data];
     for (SocketHost *h in socket.clientHosts) {
         if (h != host) {
             [socket send:data toHost:h];
@@ -79,23 +93,29 @@
         
         NSString *msg = [NSString stringWithFormat:@"%@:%d say:%@", host.host, host.port, body.msg];
         [self insertMsg:msg];
-        NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
-        for (SocketHost *h in socket.clientHosts) {
-            if (h != host) {
-                [socket send:data toHost:h];
+        if (_isServer) {
+            NSData *data = [[self packetWithMsg:msg] data];
+            for (SocketHost *h in socket.clientHosts) {
+                if (h != host) {
+                    [socket send:data toHost:h];
+                }
             }
         }
     }
 }
 
-- (void)socketHelper:(SocketHelper *)socket disconnect:(SocketHost *)host {
-    if (!_isServer) {
-        return;
+- (void)socketHelper:(SocketHelper *)socket disconnect:(SocketHost *)host error:(NSError *)error
+{
+    if (_isServer) {
+        NSString *msg = [NSString stringWithFormat:@"%@:%d has left", host.host, host.port];
+        [self insertMsg:msg];
+        NSData *data = [[self packetWithMsg:msg] data];
+        [socket send:data];
     }
-    NSString *msg = [NSString stringWithFormat:@"%@:%d has left", host.host, host.port];
-    [self insertMsg:msg];
-    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
-    [socket send:data];
+    else {
+        NSString *msg = @"connection failed";
+        [self insertMsg:msg];
+    }
 }
 
 #pragma mark - UITableViewDataSource

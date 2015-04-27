@@ -45,6 +45,6 @@
 
 - (void)socketHelper:(SocketHelper *)socket recievePacket:(SocketPacket *)packet host:(SocketHost *)host;
 
-- (void)socketHelper:(SocketHelper *)socket disconnect:(SocketHost *)host;
+- (void)socketHelper:(SocketHelper *)socket disconnect:(SocketHost *)host error:(NSError *)error;
 
 @end

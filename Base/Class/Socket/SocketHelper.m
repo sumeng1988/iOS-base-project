@@ -162,6 +162,7 @@ typedef enum _SocketTag {
             if (head) {
                 SocketPacketBody *body = [SocketPacketBodyFactory create:head.type];
                 if (body) {
+                    [body parse:data];
                     SocketPacket *packet = [SocketPacket packetWithHead:head
                                                                    body:body];
                     if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:recievePacket:host:)]) {
@@ -269,9 +270,9 @@ typedef enum _SocketTag {
             [_clientHosts removeObject:[self host:sock]];
         }
     }
-    if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:disconnect:)])
+    if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:disconnect:error:)])
     {
-        [_delegate socketHelper:self disconnect:host];
+        [_delegate socketHelper:self disconnect:host error:err];
     }
 }
 

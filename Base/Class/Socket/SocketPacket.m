@@ -62,7 +62,7 @@ static const UInt16 sHeadTail = 0x0D0A;
     [data appendUInt:htonl(_length)];
     [data appendByte:_flags];
     [data appendByte:_type];
-    [data appendUShort:_tail];
+    [data appendUShort:htons(_tail)];
     return data;
 }
 
@@ -98,11 +98,15 @@ static const UInt16 sHeadTail = 0x0D0A;
 @implementation SocketPacketBody
 
 - (void)parse:(NSData *)data {
-    _length = (UInt32)data.length;
+    
 }
 
 - (NSData *)data {
     return nil;
+}
+
+- (UInt32)length {
+    return 0;
 }
 
 @end
@@ -118,7 +122,6 @@ static const UInt16 sHeadTail = 0x0D0A;
 }
 
 - (void)parse:(NSData *)data {
-    [super parse:data];
     self.msg = [[NSString alloc] initWithData:data
                                      encoding:NSUTF8StringEncoding];
 }
@@ -129,7 +132,10 @@ static const UInt16 sHeadTail = 0x0D0A;
 
 - (void)setMsg:(NSString *)msg {
     _msg = msg;
-    self.length = (UInt32)[msg length];;
+}
+
+- (UInt32)length {
+    return (UInt32)[self data].length;
 }
 
 @end

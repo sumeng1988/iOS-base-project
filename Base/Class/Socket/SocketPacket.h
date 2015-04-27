@@ -63,10 +63,10 @@ typedef enum _SocketPacketType {
 @interface SocketPacketBody : NSObject
 
 @property (nonatomic, assign) SocketPacketType type;
-@property (nonatomic, assign) UInt32 length;
 
 - (void)parse:(NSData *)data;
 - (NSData *)data;
+- (UInt32)length;
 
 @end
 

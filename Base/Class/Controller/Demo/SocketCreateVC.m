@@ -69,7 +69,7 @@
     _portTf.leftCenter = CGPointMake(portLbl.rightCenter.x+10, portLbl.rightCenter.y);
     [self.view addSubview:_portTf];
     
-    _ipTf.text = @"192.168.1.48";
+    _ipTf.text = @"192.168.1.47";
     _portTf.text = @"61234";
 }
 
