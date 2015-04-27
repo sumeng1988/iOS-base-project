@@ -81,7 +81,7 @@ typedef enum _SocketTag {
         [self open];
         NSError *err = nil;
         if (![_socket connectToHost:host onPort:port withTimeout:1 error:&err]) {
-            NSLog(@"socket connectToHost() err:%@", err);
+            LOG(@"socket connectToHost() err:%@", err);
             return NO;
         }
         _isServer = NO;
@@ -202,6 +202,12 @@ typedef enum _SocketTag {
     host.host = newSocket.connectedHost;
     host.port = newSocket.connectedPort;
     [_clientHosts addObject:host];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:acceptHost:)])
+    {
+        [_delegate socketHelper:self acceptHost:host];
+    }
+    
     [newSocket readDataToLength:[SocketPacketHead length]
                     withTimeout:-1
                             tag:SocketTagHead];
@@ -214,10 +220,10 @@ typedef enum _SocketTag {
     _serverHost.host = host;
     _serverHost.port = port;
     
-    SocketPacketMsg *body = [[SocketPacketMsg alloc] init];
-    body.msg = @"hello world";
-    SocketPacket *packet = [SocketPacket packetWithBody:body];
-    [self send:[packet data] toHost:_serverHost];
+    if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:connectToHost:)])
+    {
+        [_delegate socketHelper:self connectToHost:_serverHost];
+    }
     
     [sock readDataToLength:[SocketPacketHead length]
                withTimeout:-1
@@ -253,17 +259,19 @@ typedef enum _SocketTag {
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
-    if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:disconnect:)])
-    {
-        [_delegate socketHelper:self disconnect:[self host:sock]];
-    }
+    SocketHost *host = nil;
     if (sock) {
         if (sock == _socket) {
             [self close];
         }
         else {
+            host = [self host:sock];
             [_clientHosts removeObject:[self host:sock]];
         }
+    }
+    if (_delegate && [_delegate respondsToSelector:@selector(socketHelper:disconnect:)])
+    {
+        [_delegate socketHelper:self disconnect:host];
     }
 }
 

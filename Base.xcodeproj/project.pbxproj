@@ -64,6 +64,8 @@
 		7E7E84141AE02E58007C3D7F /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E840C1AE02E58007C3D7F /* ALView+PureLayout.m */; };
 		7E7E84151AE02E58007C3D7F /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E840E1AE02E58007C3D7F /* NSArray+PureLayout.m */; };
 		7E7E84161AE02E58007C3D7F /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E84101AE02E58007C3D7F /* NSLayoutConstraint+PureLayout.m */; };
+		7E8D15251AEA692000274A37 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8D15221AEA692000274A37 /* SocketHelper.m */; };
+		7E8D15261AEA692000274A37 /* SocketPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8D15241AEA692000274A37 /* SocketPacket.m */; };
 		7EAC8BE31AE0A46900DB9C4C /* SMImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */; };
 		7EB2DD4E1ADFC80F00D3C265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD4D1ADFC80F00D3C265 /* main.m */; };
 		7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD501ADFC80F00D3C265 /* AppDelegate.m */; };
@@ -120,6 +122,10 @@
 		7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738851AE5FFF6000136E3 /* UIView+Frame.m */; };
 		7EB738941AE60025000136E3 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738931AE60025000136E3 /* NSObject+Swizzle.m */; };
 		7EB7389D1AE602A2000136E3 /* Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7389C1AE602A2000136E3 /* Swizzle.m */; };
+		7EC8724B1AEDD34A009D216A /* SocketCreateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */; };
+		7EC8724E1AEDD4C9009D216A /* SocketCommunicateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724D1AEDD4C9009D216A /* SocketCommunicateVC.m */; };
+		7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */; };
+		7EC872551AEDD78A009D216A /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */; };
 		7EE3990D1AE123280069DAC2 /* ApiCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990C1AE123280069DAC2 /* ApiCommon.m */; };
 		7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */; };
 /* End PBXBuildFile section */
@@ -258,6 +264,10 @@
 		7E7E84111AE02E58007C3D7F /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		7E7E84121AE02E58007C3D7F /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		7E7E84131AE02E58007C3D7F /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		7E8D15211AEA692000274A37 /* SocketHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketHelper.h; sourceTree = "<group>"; };
+		7E8D15221AEA692000274A37 /* SocketHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketHelper.m; sourceTree = "<group>"; };
+		7E8D15231AEA692000274A37 /* SocketPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketPacket.h; sourceTree = "<group>"; };
+		7E8D15241AEA692000274A37 /* SocketPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketPacket.m; sourceTree = "<group>"; };
 		7EAC8BE11AE0A46900DB9C4C /* SMImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImagePicker.h; sourceTree = "<group>"; };
 		7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImagePicker.m; sourceTree = "<group>"; };
 		7EB2DD481ADFC80F00D3C265 /* Base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Base.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +383,14 @@
 		7EB738931AE60025000136E3 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
 		7EB7389B1AE602A2000136E3 /* Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swizzle.h; sourceTree = "<group>"; };
 		7EB7389C1AE602A2000136E3 /* Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swizzle.m; sourceTree = "<group>"; };
+		7EC872491AEDD34A009D216A /* SocketCreateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketCreateVC.h; sourceTree = "<group>"; };
+		7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketCreateVC.m; sourceTree = "<group>"; };
+		7EC8724C1AEDD4C9009D216A /* SocketCommunicateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketCommunicateVC.h; sourceTree = "<group>"; };
+		7EC8724D1AEDD4C9009D216A /* SocketCommunicateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketCommunicateVC.m; sourceTree = "<group>"; };
+		7EC872501AEDD78A009D216A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		7EC872521AEDD78A009D216A /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		7EE3990B1AE123280069DAC2 /* ApiCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCommon.h; sourceTree = "<group>"; };
 		7EE3990C1AE123280069DAC2 /* ApiCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCommon.m; sourceTree = "<group>"; };
 		7EE3990E1AE1249D0069DAC2 /* ApiDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDemo.h; sourceTree = "<group>"; };
@@ -581,6 +599,17 @@
 			path = PureLayout;
 			sourceTree = "<group>";
 		};
+		7E8D15201AEA692000274A37 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				7E8D15211AEA692000274A37 /* SocketHelper.h */,
+				7E8D15221AEA692000274A37 /* SocketHelper.m */,
+				7E8D15231AEA692000274A37 /* SocketPacket.h */,
+				7E8D15241AEA692000274A37 /* SocketPacket.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 		7EB2DD3F1ADFC80F00D3C265 = {
 			isa = PBXGroup;
 			children = (
@@ -650,6 +679,7 @@
 				7EB2DD851ADFCA5D00D3C265 /* Context */,
 				7EB2DD8C1ADFCA5D00D3C265 /* Controller */,
 				7E1716F21AE11C3B0091E09C /* Http */,
+				7E8D15201AEA692000274A37 /* Socket */,
 				7EB2DD8F1ADFCA5D00D3C265 /* Utility */,
 				7EB2DD901ADFCA5D00D3C265 /* Widget */,
 				7EB2DDC81ADFFBCF00D3C265 /* Libs */,
@@ -690,6 +720,7 @@
 			isa = PBXGroup;
 			children = (
 				7E7E83FA1AE01539007C3D7F /* Base */,
+				7EC872481AEDD2D6009D216A /* Demo */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -716,6 +747,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1716D51AE1170A0091E09C /* AFNetworking */,
+				7EC8724F1AEDD78A009D216A /* AsyncSocket */,
 				7E7E83791AE005C9007C3D7F /* DACircularProgress */,
 				7EB2DDEE1ADFFC7E00D3C265 /* ELCImagePicker */,
 				7EB2DE1D1AE0017600D3C265 /* FMDB */,
@@ -875,6 +907,28 @@
 			path = Swizzle;
 			sourceTree = "<group>";
 		};
+		7EC872481AEDD2D6009D216A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				7EC872491AEDD34A009D216A /* SocketCreateVC.h */,
+				7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */,
+				7EC8724C1AEDD4C9009D216A /* SocketCommunicateVC.h */,
+				7EC8724D1AEDD4C9009D216A /* SocketCommunicateVC.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		7EC8724F1AEDD78A009D216A /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				7EC872501AEDD78A009D216A /* GCDAsyncSocket.h */,
+				7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */,
+				7EC872521AEDD78A009D216A /* GCDAsyncUdpSocket.h */,
+				7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */,
+			);
+			path = AsyncSocket;
+			sourceTree = "<group>";
+		};
 		7EE3990A1AE1231E0069DAC2 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,6 +1055,7 @@
 				7E7E83E51AE00768007C3D7F /* PSTCollectionViewFlowLayout.m in Sources */,
 				7EB2DE071ADFFC7E00D3C265 /* ELCAsset.m in Sources */,
 				7E7E83E01AE00768007C3D7F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				7EC8724E1AEDD4C9009D216A /* SocketCommunicateVC.m in Sources */,
 				7E7E83711AE00573007C3D7F /* SDWebImageManager.m in Sources */,
 				7E1716EB1AE1170A0091E09C /* AFHTTPSessionManager.m in Sources */,
 				7EAC8BE31AE0A46900DB9C4C /* SMImagePicker.m in Sources */,
@@ -1010,6 +1065,7 @@
 				7E1716E91AE1170A0091E09C /* AFHTTPRequestOperation.m in Sources */,
 				7E1716EE1AE1170A0091E09C /* AFURLConnectionOperation.m in Sources */,
 				7E1716EA1AE1170A0091E09C /* AFHTTPRequestOperationManager.m in Sources */,
+				7EC8724B1AEDD34A009D216A /* SocketCreateVC.m in Sources */,
 				7EB7388B1AE5FFF6000136E3 /* NSString+Value.m in Sources */,
 				7E1716F81AE11CA10091E09C /* ApiModel.m in Sources */,
 				7EB7388E1AE5FFF6000136E3 /* UIImage+Resize.m in Sources */,
@@ -1028,9 +1084,11 @@
 				7EB2DE541AE0031700D3C265 /* UIScrollView+MJExtension.m in Sources */,
 				7EB7389D1AE602A2000136E3 /* Swizzle.m in Sources */,
 				7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */,
+				7EC872551AEDD78A009D216A /* GCDAsyncUdpSocket.m in Sources */,
 				7EB738891AE5FFF6000136E3 /* NSMutableDictionary+Value.m in Sources */,
 				7EB2DE501AE0031700D3C265 /* MJRefreshGifHeader.m in Sources */,
 				7E7E83BC1AE005ED007C3D7F /* MWGridCell.m in Sources */,
+				7E8D15251AEA692000274A37 /* SocketHelper.m in Sources */,
 				7E7E83E81AE00768007C3D7F /* PSTCollectionViewUpdateItem.m in Sources */,
 				7E7E836B1AE00573007C3D7F /* NSData+ImageContentType.m in Sources */,
 				7EB7388D1AE5FFF6000136E3 /* UIControl+Blocks.m in Sources */,
@@ -1060,6 +1118,7 @@
 				7EB2DD921ADFCA5D00D3C265 /* FileSystem.m in Sources */,
 				7E1716EF1AE1170A0091E09C /* AFURLRequestSerialization.m in Sources */,
 				7E7E83741AE00573007C3D7F /* UIImage+GIF.m in Sources */,
+				7E8D15261AEA692000274A37 /* SocketPacket.m in Sources */,
 				7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */,
 				7E7E83C21AE005ED007C3D7F /* MWZoomingScrollView.m in Sources */,
 				7EB2DE1C1AE000AC00D3C265 /* OpenUDID.m in Sources */,
@@ -1075,6 +1134,7 @@
 				7E7E83C01AE005ED007C3D7F /* MWTapDetectingImageView.m in Sources */,
 				7E7E83EB1AE00768007C3D7F /* PSTGridLayoutRow.m in Sources */,
 				7E7E83E61AE00768007C3D7F /* PSTCollectionViewItemKey.m in Sources */,
+				7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */,
 				7E7E83BF1AE005ED007C3D7F /* MWPhotoBrowser.m in Sources */,
 				7E1716F11AE1170A0091E09C /* AFURLSessionManager.m in Sources */,
 				7EB2DD931ADFCA5D00D3C265 /* HardwareInfo.m in Sources */,

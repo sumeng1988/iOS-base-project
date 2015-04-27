@@ -109,6 +109,14 @@ static const UInt16 sHeadTail = 0x0D0A;
 
 @implementation SocketPacketMsg
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.type = SocketPacketTypeMsg;
+    }
+    return self;
+}
+
 - (void)parse:(NSData *)data {
     [super parse:data];
     self.msg = [[NSString alloc] initWithData:data
@@ -129,16 +137,12 @@ static const UInt16 sHeadTail = 0x0D0A;
 @implementation SocketPacketBodyFactory
 
 + (SocketPacketBody *)create:(SocketPacketType)type {
-    SocketPacketBody *body = nil;
     switch (type) {
         case SocketPacketTypeMsg:
-            body = [[SocketPacketMsg alloc] init];
-            break;
+            return [[SocketPacketMsg alloc] init];
         default:
-            break;
+            return nil;
     }
-    body.type = type;
-    return body;
 }
 
 @end

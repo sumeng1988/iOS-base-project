@@ -8,7 +8,7 @@
 
 #import "UITableViewControllerExt.h"
 
-@interface ViewController : UITableViewControllerExt
+@interface ViewController : UITableViewController
 
 
 @end

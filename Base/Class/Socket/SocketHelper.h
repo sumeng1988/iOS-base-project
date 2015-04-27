@@ -39,17 +39,12 @@
 
 @optional
 
-- (void)socketHelper:(SocketHelper *)helper
-          acceptHost:(SocketHost *)host;
+- (void)socketHelper:(SocketHelper *)socket acceptHost:(SocketHost *)host;
 
-- (void)socketHelper:(SocketHelper *)helper
-       connectToHost:(SocketHost *)host;
+- (void)socketHelper:(SocketHelper *)socket connectToHost:(SocketHost *)host;
 
-- (void)socketHelper:(SocketHelper *)helper
-       recievePacket:(SocketPacket *)packet
-                host:(SocketHost *)host;
+- (void)socketHelper:(SocketHelper *)socket recievePacket:(SocketPacket *)packet host:(SocketHost *)host;
 
-- (void)socketHelper:(SocketHelper *)helper
-          disconnect:(SocketHost *)host;
+- (void)socketHelper:(SocketHelper *)socket disconnect:(SocketHost *)host;
 
 @end
