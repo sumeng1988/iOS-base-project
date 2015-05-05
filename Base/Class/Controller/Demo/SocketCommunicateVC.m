@@ -8,12 +8,15 @@
 
 #import "SocketCommunicateVC.h"
 #import "SocketHelper.h"
+#import "SMInputBar.h"
 
-@interface SocketCommunicateVC () <SocketHelperDelegate>
+@interface SocketCommunicateVC () <SocketHelperDelegate, SMInputBarDelegate>
 
 @property (nonatomic, assign) BOOL isServer;
 @property (nonatomic, strong) SocketHelper *socket;
 @property (nonatomic, strong) NSMutableArray *datas;
+
+@property (nonatomic, strong) SMInputBar *inputBar;
 
 @end
 
@@ -35,6 +38,11 @@
     else {
         [_socket connectToHost:_ip port:_port];
     }
+    
+    _inputBar = [[SMInputBar alloc] initWithFrame:CGRectMake(0, self.view.height-kInputBarHeightDefault, self.view.width, kInputBarHeightDefault)];
+    _inputBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    _inputBar.delegate = self;
+    self.footerView = _inputBar;
 }
 
 - (void)dealloc {
@@ -46,6 +54,11 @@
 
 - (void)sayHello {
     NSString *msg = @"hello";
+    [self insertMsg:msg];
+    [_socket send:[[self packetWithMsg:msg] data]];
+}
+
+- (void)sendMsg:(NSString *)msg {
     [self insertMsg:msg];
     [_socket send:[[self packetWithMsg:msg] data]];
 }
@@ -141,6 +154,43 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_inputBar.status != SMInputBarStatusNone) {
+        _inputBar.status = SMInputBarStatusNone;
+    }
+}
+
+#pragma mark - SMInputBarDelegate
+
+- (void)inputBar:(SMInputBar *)bar sendText:(NSString *)text {
+    LOG(@"inputBar sendText:%@", text);
+    [self sendMsg:text];
+}
+
+- (void)inputBar:(SMInputBar *)bar sendImages:(NSArray *)paths {
+    LOG(@"inputBar sendImages:%@", paths);
+    [self sendMsg:@"[image]"];
+}
+
+- (void)inputBar:(SMInputBar *)bar willChangeFrame:(CGRect)frame withDuration:(NSTimeInterval)duration
+{
+    LOG(@"inputBar willChangeFrame:%.1f", frame.size.height);
+    [UIView animateWithDuration:duration
+                     animations:^{
+                         self.tableView.height = self.view.height - frame.size.height;
+                         bar.y = self.tableView.height;
+                     }
+                     completion:^(BOOL finished) {
+
+                     }];
+}
+
+- (void)inputBar:(SMInputBar *)bar didChangeFrame:(CGRect)frame {
+    LOG(@"inputBar didChangeFrame:%.1f", frame.size.height);
 }
 
 @end

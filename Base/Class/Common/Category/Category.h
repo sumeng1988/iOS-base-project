@@ -14,6 +14,7 @@
 #import "NSMutableData+Value.h"
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
+#import "UIView+ViewController.h"
 #import "UIImage+Stretch.h"
 #import "UIImage+Resize.h"
 #import "UIControl+Blocks.h"

@@ -65,7 +65,7 @@
             imagePicker.delegate = self;
             imagePicker.allowsEditing = _allowEditing;
             imagePicker.modalPresentationStyle = UIModalPresentationFormSheet;
-            [_vc presentViewController:imagePicker animated:YES completion:nil];
+            [vc presentViewController:imagePicker animated:YES completion:nil];
         }
         else {
             [SMHud text:@"inavailable"];
@@ -78,7 +78,7 @@
         picker.onOrder = YES;
         picker.imagePickerDelegate = self;
         picker.returnsOriginalImage = YES;
-        [_vc presentViewController:picker animated:YES completion:nil];
+        [vc presentViewController:picker animated:YES completion:nil];
     }
 }
 

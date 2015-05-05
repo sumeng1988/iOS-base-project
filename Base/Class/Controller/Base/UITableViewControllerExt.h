@@ -8,8 +8,11 @@
 
 #import "UIViewControllerExt.h"
 
-@interface UITableViewControllerExt : UITableViewController
+@interface UITableViewControllerExt : UIViewControllerExt <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, assign) BOOL needPullFlush;
 @property (nonatomic, assign) BOOL needPullLoadmore;
 @property (nonatomic, assign) BOOL noMoreData;

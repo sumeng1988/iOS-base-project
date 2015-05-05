@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 sumeng. All rights reserved.
 //
 
-#import "UIViewControllerExt.h"
+#import "UITableViewControllerExt.h"
 
-@interface SocketCommunicateVC : UITableViewController
+@interface SocketCommunicateVC : UITableViewControllerExt
 
 @property (nonatomic, copy) NSString *ip;
 @property (nonatomic, assign) UInt16 port;
