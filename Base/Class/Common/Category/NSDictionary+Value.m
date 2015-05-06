@@ -18,6 +18,10 @@
     return [self intForKey:key def:0];
 }
 
+- (long)longForKey:(NSString *)key {
+    return [self longForKey:key def:0];
+}
+
 - (BOOL)boolForKey:(NSString *)key {
     return [self boolForKey:key def:NO];
 }
@@ -62,6 +66,16 @@
         return [(NSNumber *)obj intValue];
     else if ([obj isKindOfClass:[NSString class]])
         return [(NSString *)obj intValue];
+    else
+        return def;
+}
+
+- (long)longForKey:(NSString *)key def:(long)def {
+    id obj = [self objectForKey:key];
+    if ([obj isKindOfClass:[NSNumber class]])
+        return [(NSNumber *)obj longValue];
+    else if ([obj isKindOfClass:[NSString class]])
+        return [(NSString *)obj longLongValue];
     else
         return def;
 }

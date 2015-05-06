@@ -12,6 +12,7 @@
 
 - (void)setInteger:(NSInteger)value forKey:(NSString *)key;
 - (void)setInt:(int)value forKey:(NSString *)key;
+- (void)setLong:(long)value forKey:(NSString *)key;
 - (void)setBool:(BOOL)value forKey:(NSString *)key;
 - (void)setFloat:(float)value forKey:(NSString *)key;
 - (void)setDouble:(double)value forKey:(NSString *)key;

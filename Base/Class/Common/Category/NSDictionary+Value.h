@@ -12,6 +12,7 @@
 
 - (NSInteger)integerForKey:(NSString *)key;
 - (int)intForKey:(NSString *)key;
+- (long)longForKey:(NSString *)key;
 - (BOOL)boolForKey:(NSString *)key;
 - (float)floatForKey:(NSString *)key;
 - (double)doubleForKey:(NSString *)key;
@@ -22,6 +23,7 @@
 
 - (NSInteger)integerForKey:(NSString *)key def:(NSInteger)def;
 - (int)intForKey:(NSString *)key def:(int)def;
+- (long)longForKey:(NSString *)key def:(long)def;
 - (BOOL)boolForKey:(NSString *)key def:(BOOL)def;
 - (float)floatForKey:(NSString *)key def:(float)def;
 - (double)doubleForKey:(NSString *)key def:(double)def;

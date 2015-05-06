@@ -270,6 +270,7 @@
 		7E9776FB1AF8683400AA4ABB /* inputbar_keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E9776F81AF8683400AA4ABB /* inputbar_keyboard@2x.png */; };
 		7E9777011AF87B9F00AA4ABB /* SMExtentionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9777001AF87B9F00AA4ABB /* SMExtentionPanel.m */; };
 		7E9777041AF87BBD00AA4ABB /* SMEmotionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9777031AF87BBD00AA4ABB /* SMEmotionPanel.m */; };
+		7EA1CA571AF9B98200F134DE /* SMMemCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA1CA561AF9B98200F134DE /* SMMemCache.m */; };
 		7EAC8BE31AE0A46900DB9C4C /* SMImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */; };
 		7EB2DD4E1ADFC80F00D3C265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD4D1ADFC80F00D3C265 /* main.m */; };
 		7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DD501ADFC80F00D3C265 /* AppDelegate.m */; };
@@ -681,6 +682,8 @@
 		7E9777001AF87B9F00AA4ABB /* SMExtentionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMExtentionPanel.m; sourceTree = "<group>"; };
 		7E9777021AF87BBD00AA4ABB /* SMEmotionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEmotionPanel.h; sourceTree = "<group>"; };
 		7E9777031AF87BBD00AA4ABB /* SMEmotionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEmotionPanel.m; sourceTree = "<group>"; };
+		7EA1CA551AF9B98200F134DE /* SMMemCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMemCache.h; sourceTree = "<group>"; };
+		7EA1CA561AF9B98200F134DE /* SMMemCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMemCache.m; sourceTree = "<group>"; };
 		7EAC8BE11AE0A46900DB9C4C /* SMImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImagePicker.h; sourceTree = "<group>"; };
 		7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImagePicker.m; sourceTree = "<group>"; };
 		7EB2DD481ADFC80F00D3C265 /* Base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Base.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1378,6 +1381,8 @@
 			children = (
 				7E7E83F31AE00A78007C3D7F /* SMHud.h */,
 				7E7E83F41AE00A78007C3D7F /* SMHud.m */,
+				7EA1CA551AF9B98200F134DE /* SMMemCache.h */,
+				7EA1CA561AF9B98200F134DE /* SMMemCache.m */,
 				7EAC8BE11AE0A46900DB9C4C /* SMImagePicker.h */,
 				7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */,
 				7E0AE36A1AF8BED400C9C9CE /* SMEmotionInfo.h */,
@@ -1980,6 +1985,7 @@
 				7EB2DE2C1AE0017600D3C265 /* FMDatabaseQueue.m in Sources */,
 				7EB7388A1AE5FFF6000136E3 /* NSObject+Attachment.m in Sources */,
 				7E7E83C01AE005ED007C3D7F /* MWTapDetectingImageView.m in Sources */,
+				7EA1CA571AF9B98200F134DE /* SMMemCache.m in Sources */,
 				7E7E83EB1AE00768007C3D7F /* PSTGridLayoutRow.m in Sources */,
 				7E7E83E61AE00768007C3D7F /* PSTCollectionViewItemKey.m in Sources */,
 				7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */,
@@ -2127,6 +2133,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "Base/Base-Prefix.pch";
 				INFOPLIST_FILE = Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2138,6 +2145,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "Base/Base-Prefix.pch";
 				INFOPLIST_FILE = Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

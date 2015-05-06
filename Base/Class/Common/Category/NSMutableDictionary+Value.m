@@ -18,6 +18,10 @@
     [self setObject:[NSNumber numberWithInt:value] forKey:key];
 }
 
+- (void)setLong:(long)value forKey:(NSString *)key {
+    [self setObject:[NSNumber numberWithLong:value] forKey:key];
+}
+
 - (void)setBool:(BOOL)value forKey:(NSString *)key {
     [self setObject:[NSNumber numberWithBool:value] forKey:key];
 }
