@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageCtrl;
-@property (nonatomic, strong) NSMutableArray *photoViews;
+@property (nonatomic, strong) NSMutableArray *photoViewPool;
 
 @end
 
@@ -27,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
+    
+    _fillScreenWhenLongPhoto = YES;
+    _photoViewPool = [[NSMutableArray alloc] initWithCapacity:3];
     
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
         _isLeave = NO;
@@ -44,34 +47,17 @@
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _scrollView.contentSize = CGSizeMake(_scrollView.width * _imageDataSources.count, _scrollView.contentSize.height);
+    _scrollView.contentOffset = CGPointMake(_scrollView.width * _index, 0);
     [self.view addSubview:_scrollView];
     
     _pageCtrl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.height - 21, self.view.width, 21)];
     _pageCtrl.hidesForSinglePage = YES;
     _pageCtrl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    _pageCtrl.numberOfPages = _imageDataSources.count;
     [self.view addSubview:_pageCtrl];
     
-    _fillScreenWhenLongPhoto = YES;
-    
-    NSUInteger count = _imageDataSources.count;
-    
-    _pageCtrl.numberOfPages = count;
-    _pageCtrl.currentPage = _index;
-    
-    _scrollView.contentSize = CGSizeMake(_scrollView.width * count, _scrollView.contentSize.height);
-    _scrollView.contentOffset = CGPointMake(_scrollView.width * _index, 0);
-    
-    self.photoViews = [[NSMutableArray alloc] initWithCapacity:count];
-    for (int i = 0; i < count; i++) {
-        SMPhotoView *photoView = [[SMPhotoView alloc] initWithFrame:CGRectMake(_scrollView.width * i, 0, _scrollView.width, _scrollView.height)];
-        photoView.tagDelegate = self;
-        photoView.fillScreenWhenLongPhoto = _fillScreenWhenLongPhoto;
-        UIImageView *srcView = [self srcView:i];
-        photoView.placeholderImage = srcView.image;
-        photoView.imageDataSource = _imageDataSources[i];
-        [_scrollView addSubview:photoView];
-        [_photoViews addObject:photoView];
-    }
+    [self photoViewPoolUpdate:_index];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -95,7 +81,7 @@
     [window addSubview:translateView];
     
     UIImage *image = nil;
-    if (_index < _imageDataSources.count) {
+    if (_index >= 0 && _index < _imageDataSources.count) {
         image = [self imageFromDataSource:_imageDataSources[_index]];
     }
     if (image == nil) {
@@ -122,12 +108,17 @@
                      }];
 }
 
+- (void)setIndex:(NSInteger)index {
+    _index = index;
+    _pageCtrl.currentPage = index;
+}
+
 #pragma mark - private
 
 - (void)hide {
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
     
-    SMPhotoView *photoView = _photoViews[_index];
+    SMPhotoView *photoView = [self photoViewWithIndex:_index];
     CGRect fromFrame = [photoView convertRect:photoView.imageFrame toView:window];
     
     UIImageView *srcView = [self srcView:_index];
@@ -164,8 +155,8 @@
     }
 }
 
-- (UIImageView *)srcView:(NSUInteger)index {
-    if (index < _srcViews.count) {
+- (UIImageView *)srcView:(NSInteger)index {
+    if (index >= 0 && index < _srcViews.count) {
         id obj = _srcViews[index];
         if ([obj isKindOfClass:[UIImageView class]]) {
             return obj;
@@ -243,12 +234,85 @@
     return nil;
 }
 
+- (NSInteger)currentIndex:(UIScrollView *)scrollView {
+    CGRect visibleBounds = scrollView.bounds;
+    NSInteger index = (NSInteger)(floorf(CGRectGetMidX(visibleBounds) / CGRectGetWidth(visibleBounds)));
+    if (index < 0) {
+        index = 0;
+    }
+    if (index >= _imageDataSources.count) {
+        index = _imageDataSources.count - 1;
+    }
+    return index;
+}
+
+- (void)updatePhotoView:(NSInteger)index {
+    
+}
+
+#pragma mark - SMPhotoView Pool
+
+- (void)photoViewPoolUpdate:(NSInteger)currentIndex {
+    //clean pool
+    for (SMPhotoView *photoView in _photoViewPool) {
+        NSInteger tag = photoView.tag;
+        if (tag != -1 && (tag < currentIndex - 1 || tag > currentIndex + 1)) {
+            [photoView removeFromSuperview];
+            photoView.tag = -1;
+            [photoView reset];
+        }
+    }
+    //update current
+    [self photoViewWithIndex:currentIndex];
+    //update prev
+    if (currentIndex - 1 >= 0) {
+        [self photoViewWithIndex:currentIndex - 1];
+    }
+    //update next
+    if (currentIndex + 1 < _imageDataSources.count) {
+        [self photoViewWithIndex:currentIndex + 1];
+    }
+}
+
+- (SMPhotoView *)photoViewWithIndex:(NSInteger)index {
+    if (index < 0 || index >= _imageDataSources.count) {
+        return nil;
+    }
+    
+    for (SMPhotoView *photoView in _photoViewPool) {
+        if (photoView.tag == index) {
+            return photoView;
+        }
+    }
+    SMPhotoView *photoView = [self dequeueReusablePhotoView];
+    if (photoView == nil) {
+        photoView = [[SMPhotoView alloc] init];
+        [_photoViewPool addObject:photoView];
+    }
+    photoView.tag = index;
+    photoView.frame = CGRectMake(_scrollView.width * index, 0, _scrollView.width, _scrollView.height);
+    photoView.tagDelegate = self;
+    photoView.fillScreenWhenLongPhoto = _fillScreenWhenLongPhoto;
+    photoView.placeholderImage = [self srcView:index].image;
+    photoView.imageDataSource = _imageDataSources[index];
+    [_scrollView addSubview:photoView];
+    return photoView;
+}
+
+- (SMPhotoView *)dequeueReusablePhotoView {
+    for (SMPhotoView *photoView in _photoViewPool) {
+        if (photoView.tag == -1) {
+            return photoView;
+        }
+    }
+    return nil;
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    CGFloat contentoffset = scrollView.contentOffset.x;
-    _index = floor(contentoffset / scrollView.width);
-    _pageCtrl.currentPage = _index;
+    self.index = [self currentIndex:scrollView];
+    [self photoViewPoolUpdate:_index];
 }
 
 #pragma mark - SMPhotoViewDelegate

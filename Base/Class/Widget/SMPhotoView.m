@@ -108,6 +108,14 @@
     return _imageView.frame;
 }
 
+- (void)reset {
+    self.minimumZoomScale = 1.0f;
+    self.maximumZoomScale = 1.0f;
+    self.zoomScale = self.minimumZoomScale;
+    
+    self.imageDataSource = nil;
+}
+
 #pragma mark - private
 
 - (void)__setImageWithURL:(NSURL *)url {
@@ -125,7 +133,6 @@
     if (image == nil) {
         return;
     }
-    
     _imageView.image = image;
     _imageView.size = [self defaultSize:image.size];
     if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:image.size]) {

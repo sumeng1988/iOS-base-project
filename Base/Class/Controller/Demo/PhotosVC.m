@@ -26,6 +26,15 @@
     
     _urls = @[[NSURL URLWithString:@"http://c.hiphotos.baidu.com/image/pic/item/4610b912c8fcc3ce995e92589045d688d43f203a.jpg"],
               [NSURL URLWithString:@"http://h.hiphotos.baidu.com/image/pic/item/9922720e0cf3d7ca0cfbcf56f71fbe096b63a985.jpg"],
+              [NSURL URLWithString:@"http://ww2.sinaimg.cn/bmiddle/718bbf61gw1es1mwd1b6pj20c84dwb26.jpg"],
+              [NSURL URLWithString:@"http://c.hiphotos.baidu.com/image/pic/item/4610b912c8fcc3ce995e92589045d688d43f203a.jpg"],
+              [NSURL URLWithString:@"http://h.hiphotos.baidu.com/image/pic/item/9922720e0cf3d7ca0cfbcf56f71fbe096b63a985.jpg"],
+              [NSURL URLWithString:@"http://ww2.sinaimg.cn/bmiddle/718bbf61gw1es1mwd1b6pj20c84dwb26.jpg"],
+              [NSURL URLWithString:@"http://c.hiphotos.baidu.com/image/pic/item/4610b912c8fcc3ce995e92589045d688d43f203a.jpg"],
+              [NSURL URLWithString:@"http://h.hiphotos.baidu.com/image/pic/item/9922720e0cf3d7ca0cfbcf56f71fbe096b63a985.jpg"],
+              [NSURL URLWithString:@"http://ww2.sinaimg.cn/bmiddle/718bbf61gw1es1mwd1b6pj20c84dwb26.jpg"],
+              [NSURL URLWithString:@"http://c.hiphotos.baidu.com/image/pic/item/4610b912c8fcc3ce995e92589045d688d43f203a.jpg"],
+              [NSURL URLWithString:@"http://h.hiphotos.baidu.com/image/pic/item/9922720e0cf3d7ca0cfbcf56f71fbe096b63a985.jpg"],
               [NSURL URLWithString:@"http://ww2.sinaimg.cn/bmiddle/718bbf61gw1es1mwd1b6pj20c84dwb26.jpg"]];
     
     SMImageView *image1View = [[SMImageView alloc] init];

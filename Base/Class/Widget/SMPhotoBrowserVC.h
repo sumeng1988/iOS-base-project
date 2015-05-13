@@ -10,7 +10,7 @@
 
 @interface SMPhotoBrowserVC : UIViewControllerExt
 
-@property (nonatomic, assign) NSUInteger index;
+@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSArray *imageDataSources;
 @property (nonatomic, strong) NSArray *srcViews;  //UIImageView
 
