@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SocketCreateVC.h"
+#import "PhotosVC.h"
 
 @interface ViewController ()
 
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _datas = @[@"Socket Demo"];
+    _datas = @[@"Socket Demo", @"Photo Browser Demo"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -48,6 +49,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         SocketCreateVC *vc = [[SocketCreateVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 1) {
+        PhotosVC *vc = [[PhotosVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
