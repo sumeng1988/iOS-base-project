@@ -8,8 +8,8 @@
 
 #import "SMPhotoBrowserVC.h"
 #import "SMPhotoView.h"
-#import "SDWebImageDownloader.h"
 #import "SDWebImageManager.h"
+#import "ImageUtils.h"
 
 @interface SMPhotoBrowserVC () <UIScrollViewDelegate, SMPhotoViewDelegate> {
     BOOL _statusBarHidden;
@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
         _isLeave = NO;
@@ -50,20 +50,8 @@
     _pageCtrl.hidesForSinglePage = YES;
     _pageCtrl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:_pageCtrl];
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return _isLeave ? [self presentingViewControllerPrefersStatusBarHidden] : YES;
-}
-
-#pragma mark - public
-
-- (void)show {
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    if (window.rootViewController) {
-        [window.rootViewController addChildViewController:self];
-        [window addSubview:self.view];
-    }
+    
+    _fillScreenWhenLongPhoto = YES;
     
     NSUInteger count = _imageDataSources.count;
     
@@ -77,11 +65,26 @@
     for (int i = 0; i < count; i++) {
         SMPhotoView *photoView = [[SMPhotoView alloc] initWithFrame:CGRectMake(_scrollView.width * i, 0, _scrollView.width, _scrollView.height)];
         photoView.tagDelegate = self;
+        photoView.fillScreenWhenLongPhoto = _fillScreenWhenLongPhoto;
         UIImageView *srcView = [self srcView:i];
         photoView.placeholderImage = srcView.image;
         photoView.imageDataSource = _imageDataSources[i];
         [_scrollView addSubview:photoView];
         [_photoViews addObject:photoView];
+    }
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return _isLeave ? [self presentingViewControllerPrefersStatusBarHidden] : YES;
+}
+
+#pragma mark - public
+
+- (void)show {
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    if (window.rootViewController) {
+        [window.rootViewController addChildViewController:self];
+        [window addSubview:self.view];
     }
     
     UIImageView *srcView = [self srcView:_index];
@@ -104,7 +107,14 @@
     [UIView animateWithDuration:0.25f
                      animations:^{
                          translateView.size = [self defaultSize:translateView.image.size];
-                         translateView.center = CGPointMake(window.width/2, window.height/2);
+                         if (!_fillScreenWhenLongPhoto
+                             || ![ImageUtils isLongImage:translateView.image.size])
+                         {
+                             translateView.center = CGPointMake(window.width/2, window.height/2);
+                         }
+                         else {
+                             translateView.leftTop = CGPointZero;
+                         }
                      }
                      completion:^(BOOL finished) {
                          [translateView removeFromSuperview];
@@ -124,10 +134,15 @@
     CGRect toFrame = [[srcView superview] convertRect:srcView.frame toView:window];
     
     UIImageView *translateView = [[UIImageView alloc] initWithFrame:fromFrame];
-    translateView.image = [photoView image];
-    translateView.contentMode = UIViewContentModeScaleAspectFill;
+    translateView.contentMode = srcView.contentMode;
     translateView.clipsToBounds = YES;
     [window addSubview:translateView];
+    
+    UIImage *image = srcView.image;
+    if (image == nil) {
+        image = [photoView image];
+    }
+    translateView.image = image;
     
     _scrollView.hidden = YES;
     [UIView animateWithDuration:0.25f
@@ -154,6 +169,9 @@
         id obj = _srcViews[index];
         if ([obj isKindOfClass:[UIImageView class]]) {
             return obj;
+        }
+        else if ([obj isKindOfClass:[UIView class]]) {
+            return [[UIImageView alloc] initWithFrame:((UIView *)obj).frame];
         }
     }
     return nil;
@@ -184,12 +202,24 @@
     }
     CGSize defaultSize;
     if (size.height/size.width >= self.view.height/self.view.width) {
-        defaultSize.width = size.width/size.height*self.view.height;
-        defaultSize.height = self.view.height;
+        if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:size]) {
+            defaultSize.width = size.width/size.height*self.view.height;
+            defaultSize.height = self.view.height;
+        }
+        else {
+            defaultSize.width = self.view.width;
+            defaultSize.height = size.height/size.width*self.view.width;
+        }
     }
     else {
-        defaultSize.width = self.view.width;
-        defaultSize.height = size.height/size.width*self.view.width;
+        if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:size]) {
+            defaultSize.width = self.view.width;
+            defaultSize.height = size.height/size.width*self.view.width;
+        }
+        else {
+            defaultSize.width = size.width/size.height*self.view.height;
+            defaultSize.height = self.view.height;
+        }
     }
     return defaultSize;
 }

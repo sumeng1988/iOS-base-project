@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSArray *imageDataSources;
 @property (nonatomic, strong) NSArray *srcViews;  //UIImageView
 
+@property (nonatomic, assign) BOOL fillScreenWhenLongPhoto;
+
 - (void)show;
 
 @end

@@ -32,7 +32,7 @@
 }
 
 - (void)initView {
-    
+    self.clipsToBounds = YES;
 }
 
 #pragma mark - public

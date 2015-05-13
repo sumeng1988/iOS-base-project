@@ -122,19 +122,34 @@
 }
 
 - (void)__setImage:(UIImage *)image {
+    if (image == nil) {
+        return;
+    }
+    
     _imageView.image = image;
     _imageView.size = [self defaultSize:image.size];
-    _imageView.center = CGPointMake(self.width/2, self.height/2);
-    
-    if (_imageView.width < self.width/2) {
-        self.maximumZoomScale = self.width / _imageView.width;
+    if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:image.size]) {
+        _imageView.center = CGPointMake(self.width/2, self.height/2);
     }
-    else if (_imageView.height < self.height/2) {
-        self.maximumZoomScale = self.height / _imageView.height;
+    else {
+        _imageView.leftTop = CGPointZero;
+    }
+    
+    if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:image.size]) {
+        if (_imageView.width < self.width/2) {
+            self.maximumZoomScale = self.width / _imageView.width;
+        }
+        else if (_imageView.height < self.height/2) {
+            self.maximumZoomScale = self.height / _imageView.height;
+        }
+        else {
+            self.maximumZoomScale = 2.0f;
+        }
     }
     else {
         self.maximumZoomScale = 2.0f;
     }
+    self.zoomScale = self.minimumZoomScale;
 }
 
 - (CGSize)defaultSize:(CGSize)size {
@@ -143,12 +158,24 @@
     }
     CGSize defaultSize;
     if (size.height/size.width >= self.height/self.width) {
-        defaultSize.width = size.width/size.height*self.height;
-        defaultSize.height = self.height;
+        if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:size]) {
+            defaultSize.width = size.width/size.height*self.height;
+            defaultSize.height = self.height;
+        }
+        else {
+            defaultSize.width = self.width;
+            defaultSize.height = size.height/size.width*self.width;
+        }
     }
     else {
-        defaultSize.width = self.width;
-        defaultSize.height = size.height/size.width*self.width;
+        if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:size]) {
+            defaultSize.width = self.width;
+            defaultSize.height = size.height/size.width*self.width;
+        }
+        else {
+            defaultSize.width = size.width/size.height*self.height;
+            defaultSize.height = self.height;
+        }
     }
     return defaultSize;
 }
