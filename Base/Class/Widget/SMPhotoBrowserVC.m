@@ -237,18 +237,6 @@
     return nil;
 }
 
-- (NSInteger)currentIndex:(UIScrollView *)scrollView {
-    CGRect visibleBounds = scrollView.bounds;
-    NSInteger index = (NSInteger)(floorf(CGRectGetMidX(visibleBounds) / CGRectGetWidth(visibleBounds)));
-    if (index < 0) {
-        index = 0;
-    }
-    if (index >= _imageDataSources.count) {
-        index = _imageDataSources.count - 1;
-    }
-    return index;
-}
-
 #pragma mark - Layout
 
 - (void)viewWillLayoutSubviews {
@@ -328,9 +316,19 @@
 
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.index = [self currentIndex:scrollView];
-    [self photoViewPoolUpdate:_index];
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGRect visibleBounds = scrollView.bounds;
+    NSInteger index = (NSInteger)(floorf(CGRectGetMidX(visibleBounds) / CGRectGetWidth(visibleBounds)));
+    if (index < 0) {
+        index = 0;
+    }
+    if (index >= _imageDataSources.count) {
+        index = _imageDataSources.count - 1;
+    }
+    if (_index != index) {
+        self.index = index;
+        [self photoViewPoolUpdate:_index];
+    }
 }
 
 #pragma mark - SMPhotoViewDelegate
