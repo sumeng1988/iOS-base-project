@@ -19,7 +19,7 @@
 
 - (UIImage *)image;
 - (CGRect)imageFrame;
-- (void)reset;
+- (void)clear;
 
 @end
 

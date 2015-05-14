@@ -108,11 +108,12 @@
     return _imageView.frame;
 }
 
-- (void)reset {
+- (void)clear {
+    self.contentOffset = CGPointZero;
     self.minimumZoomScale = 1.0f;
     self.maximumZoomScale = 1.0f;
     self.zoomScale = self.minimumZoomScale;
-    
+    self.placeholderImage = nil;
     self.imageDataSource = nil;
 }
 

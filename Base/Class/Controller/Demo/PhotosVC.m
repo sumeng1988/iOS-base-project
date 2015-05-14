@@ -8,10 +8,9 @@
 
 #import "PhotosVC.h"
 #import "SMPhotoBrowserVC.h"
-#import "MWPhotoBrowser.h"
 #import "SMImageView.h"
 
-@interface PhotosVC () <MWPhotoBrowserDelegate>
+@interface PhotosVC ()
 
 @property (nonatomic, strong) NSArray *imageViews;
 @property (nonatomic, strong) NSArray *urls;
@@ -69,28 +68,11 @@
 - (void)handleTap:(UITapGestureRecognizer *)gesture {
     NSUInteger index = [_imageViews indexOfObject:gesture.view];
     
-    if (index < 100) {
-        SMPhotoBrowserVC *vc = [[SMPhotoBrowserVC alloc] init];
-        vc.index = index;
-        vc.imageDataSources = _urls;
-        vc.srcViews = _imageViews;
-        [vc show];
-    }
-    else {
-        MWPhotoBrowser *vc = [[MWPhotoBrowser alloc] initWithDelegate:self];
-        [vc setCurrentPhotoIndex:index];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
-
-#pragma mark - MWPhotoBrowserDelegate
-
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return _urls.count;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    return [[MWPhoto alloc] initWithURL:_urls[index]];
+    SMPhotoBrowserVC *vc = [[SMPhotoBrowserVC alloc] init];
+    vc.index = index;
+    vc.imageDataSources = _urls;
+    vc.srcViews = _imageViews;
+    [vc show];
 }
 
 @end

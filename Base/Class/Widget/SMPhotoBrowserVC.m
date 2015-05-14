@@ -11,6 +11,8 @@
 #import "SDWebImageManager.h"
 #import "ImageUtils.h"
 
+#define kPhotoViewInvalidTag -1
+
 @interface SMPhotoBrowserVC () <UIScrollViewDelegate, SMPhotoViewDelegate> {
     BOOL _statusBarHidden;
     BOOL _isLeave;
@@ -27,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     _fillScreenWhenLongPhoto = YES;
     _photoViewPool = [[NSMutableArray alloc] initWithCapacity:3];
@@ -246,8 +249,23 @@
     return index;
 }
 
-- (void)updatePhotoView:(NSInteger)index {
+#pragma mark - Layout
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutPhotoViews];
+}
+
+- (void)layoutPhotoViews {
+    _scrollView.contentSize = CGSizeMake(_scrollView.width * _imageDataSources.count, _scrollView.contentSize.height);
+    _scrollView.contentOffset =CGPointMake(_scrollView.width * _index, 0);
     
+    for (SMPhotoView *photoView in _photoViewPool) {
+        if (photoView.tag != kPhotoViewInvalidTag) {
+            photoView.frame = CGRectMake(_scrollView.width * photoView.tag, 0, _scrollView.width, _scrollView.height);
+            photoView.zoomScale = photoView.minimumZoomScale;
+        }
+    }
 }
 
 #pragma mark - SMPhotoView Pool
@@ -256,10 +274,10 @@
     //clean pool
     for (SMPhotoView *photoView in _photoViewPool) {
         NSInteger tag = photoView.tag;
-        if (tag != -1 && (tag < currentIndex - 1 || tag > currentIndex + 1)) {
+        if (tag != kPhotoViewInvalidTag && (tag < currentIndex - 1 || tag > currentIndex + 1)) {
+            photoView.tag = kPhotoViewInvalidTag;
+            [photoView clear];
             [photoView removeFromSuperview];
-            photoView.tag = -1;
-            [photoView reset];
         }
     }
     //update current
@@ -301,7 +319,7 @@
 
 - (SMPhotoView *)dequeueReusablePhotoView {
     for (SMPhotoView *photoView in _photoViewPool) {
-        if (photoView.tag == -1) {
+        if (photoView.tag == kPhotoViewInvalidTag) {
             return photoView;
         }
     }
