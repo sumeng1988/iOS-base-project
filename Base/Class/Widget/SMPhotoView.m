@@ -70,7 +70,7 @@
     [[self nextResponder] touchesEnded:touches withEvent:event];
 }
 
-#pragma mark - public
+#pragma mark - Public
 
 - (void)setPlaceholderImage:(UIImage *)placeholderImage {
     _placeholderImage = placeholderImage;
@@ -117,24 +117,16 @@
     self.imageDataSource = nil;
 }
 
-#pragma mark - private
+#pragma mark - Layout
 
-- (void)__setImageWithURL:(NSURL *)url {
-    [_imageView sd_setImageWithURL:url
-                  placeholderImage:_placeholderImage
-                           options:0
-                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                              
-                          } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                              [self __setImage:image];
-                          }];
-}
-
-- (void)__setImage:(UIImage *)image {
+- (void)layoutPhoto {
+    self.contentOffset = CGPointZero;
+    
+    UIImage *image = _imageView.image;
     if (image == nil) {
+        _imageView.frame = CGRectZero;
         return;
     }
-    _imageView.image = image;
     _imageView.size = [self defaultSize:image.size];
     if (!_fillScreenWhenLongPhoto || ![ImageUtils isLongImage:image.size]) {
         _imageView.center = CGPointMake(self.width/2, self.height/2);
@@ -158,6 +150,24 @@
         self.maximumZoomScale = 2.0f;
     }
     self.zoomScale = self.minimumZoomScale;
+}
+
+#pragma mark - Private
+
+- (void)__setImageWithURL:(NSURL *)url {
+    [_imageView sd_setImageWithURL:url
+                  placeholderImage:_placeholderImage
+                           options:0
+                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                              
+                          } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                              [self __setImage:image];
+                          }];
+}
+
+- (void)__setImage:(UIImage *)image {
+    _imageView.image = image;
+    [self layoutPhoto];
 }
 
 - (CGSize)defaultSize:(CGSize)size {

@@ -17,6 +17,7 @@
 @property (nonatomic, assign) id<SMPhotoViewDelegate> tagDelegate;
 @property (nonatomic, assign) BOOL fillScreenWhenLongPhoto;
 
+- (void)layoutPhoto;
 - (UIImage *)image;
 - (CGRect)imageFrame;
 - (void)clear;

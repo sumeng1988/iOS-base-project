@@ -12,6 +12,7 @@
 #import "ImageUtils.h"
 
 #define kPhotoViewInvalidTag -1
+#define kPhotoViewPadding 5
 
 @interface SMPhotoBrowserVC () <UIScrollViewDelegate, SMPhotoViewDelegate> {
     BOOL _statusBarHidden;
@@ -43,21 +44,21 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     }
     
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollView = [[UIScrollView alloc] initWithFrame:[self frameForScrollView]];
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
     _scrollView.alwaysBounceHorizontal = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _scrollView.contentSize = CGSizeMake(_scrollView.width * _imageDataSources.count, _scrollView.contentSize.height);
+    _scrollView.contentSize = CGSizeMake(_scrollView.width * [self numberOfPhotos], _scrollView.height);
     _scrollView.contentOffset = CGPointMake(_scrollView.width * _index, 0);
     [self.view addSubview:_scrollView];
     
     _pageCtrl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.height - 21, self.view.width, 21)];
     _pageCtrl.hidesForSinglePage = YES;
     _pageCtrl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    _pageCtrl.numberOfPages = _imageDataSources.count;
+    _pageCtrl.numberOfPages = [self numberOfPhotos];
     [self.view addSubview:_pageCtrl];
     
     [self photoViewPoolUpdate:_index];
@@ -67,7 +68,7 @@
     return _isLeave ? [self presentingViewControllerPrefersStatusBarHidden] : YES;
 }
 
-#pragma mark - public
+#pragma mark - Public
 
 - (void)show {
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
@@ -84,7 +85,7 @@
     [window addSubview:translateView];
     
     UIImage *image = nil;
-    if (_index >= 0 && _index < _imageDataSources.count) {
+    if (_index >= 0 && _index < [self numberOfPhotos]) {
         image = [self imageFromDataSource:_imageDataSources[_index]];
     }
     if (image == nil) {
@@ -116,7 +117,47 @@
     _pageCtrl.currentPage = index;
 }
 
-#pragma mark - private
+#pragma mark - Frame
+
+- (CGRect)frameForScrollView {
+    CGRect frame = self.view.bounds;
+    frame.origin.x -= kPhotoViewPadding;
+    frame.size.width += (2 * kPhotoViewPadding);
+    return CGRectIntegral(frame);
+}
+
+- (CGRect)frameForPageAtIndex:(NSUInteger)index {
+    CGRect bounds = _scrollView.bounds;
+    CGRect pageFrame = bounds;
+    pageFrame.size.width -= (2 * kPhotoViewPadding);
+    pageFrame.origin.x = (bounds.size.width * index) + kPhotoViewPadding;
+    return CGRectIntegral(pageFrame);
+}
+
+#pragma mark - Layout
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutPhotoViews];
+}
+
+- (void)layoutPhotoViews {
+    _scrollView.contentSize = CGSizeMake(_scrollView.width * [self numberOfPhotos], _scrollView.height);
+    _scrollView.contentOffset = CGPointMake(_scrollView.width * _index, 0);
+    
+    for (SMPhotoView *photoView in _photoViewPool) {
+        if (photoView.tag != kPhotoViewInvalidTag) {
+            photoView.frame = [self frameForPageAtIndex:photoView.tag];
+            [photoView layoutPhoto];
+        }
+    }
+}
+
+#pragma mark - Private
+
+- (NSUInteger)numberOfPhotos {
+    return _imageDataSources.count;
+}
 
 - (void)hide {
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
@@ -237,25 +278,6 @@
     return nil;
 }
 
-#pragma mark - Layout
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    [self layoutPhotoViews];
-}
-
-- (void)layoutPhotoViews {
-    _scrollView.contentSize = CGSizeMake(_scrollView.width * _imageDataSources.count, _scrollView.contentSize.height);
-    _scrollView.contentOffset =CGPointMake(_scrollView.width * _index, 0);
-    
-    for (SMPhotoView *photoView in _photoViewPool) {
-        if (photoView.tag != kPhotoViewInvalidTag) {
-            photoView.frame = CGRectMake(_scrollView.width * photoView.tag, 0, _scrollView.width, _scrollView.height);
-            photoView.zoomScale = photoView.minimumZoomScale;
-        }
-    }
-}
-
 #pragma mark - SMPhotoView Pool
 
 - (void)photoViewPoolUpdate:(NSInteger)currentIndex {
@@ -275,13 +297,13 @@
         [self photoViewWithIndex:currentIndex - 1];
     }
     //update next
-    if (currentIndex + 1 < _imageDataSources.count) {
+    if (currentIndex + 1 < [self numberOfPhotos]) {
         [self photoViewWithIndex:currentIndex + 1];
     }
 }
 
 - (SMPhotoView *)photoViewWithIndex:(NSInteger)index {
-    if (index < 0 || index >= _imageDataSources.count) {
+    if (index < 0 || index >= [self numberOfPhotos]) {
         return nil;
     }
     
@@ -296,7 +318,7 @@
         [_photoViewPool addObject:photoView];
     }
     photoView.tag = index;
-    photoView.frame = CGRectMake(_scrollView.width * index, 0, _scrollView.width, _scrollView.height);
+    photoView.frame = [self frameForPageAtIndex:index];;
     photoView.tagDelegate = self;
     photoView.fillScreenWhenLongPhoto = _fillScreenWhenLongPhoto;
     photoView.placeholderImage = [self srcView:index].image;
@@ -322,8 +344,8 @@
     if (index < 0) {
         index = 0;
     }
-    if (index >= _imageDataSources.count) {
-        index = _imageDataSources.count - 1;
+    if (index >= [self numberOfPhotos]) {
+        index = [self numberOfPhotos] - 1;
     }
     if (_index != index) {
         self.index = index;
