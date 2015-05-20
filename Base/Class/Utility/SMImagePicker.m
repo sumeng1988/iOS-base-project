@@ -9,7 +9,7 @@
 #import "SMImagePicker.h"
 #import "ELCImagePickerController.h"
 
-#define kImagePickerDir @"ImagePicker/"
+#define kImagePickerDir @"ImagePicker"
 
 @interface SMImagePicker () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ELCImagePickerControllerDelegate>
 
@@ -28,7 +28,7 @@
     if (self) {
         self.allowEditing = NO;
         self.maxCount = 1;
-        self.thumbSize = CGSizeMake(100, 100);
+        self.thumbSize = CGSizeMake(150, 150);
         self.thumbMode = UIViewContentModeScaleAspectFit;
         _paths = [[NSMutableArray alloc] init];
         
@@ -37,12 +37,7 @@
     return self;
 }
 
-- (void)dealloc {
-    [_paths removeAllObjects];
-    [[FileSystem shared] remove:[self cacheDir]];
-}
-
-#pragma mark - public
+#pragma mark - Public
 
 - (void)executeInViewController:(UIViewController *)vc {
     [Keyboard close];
@@ -57,14 +52,12 @@
 }
 
 - (void)execute:(UIImagePickerControllerSourceType)sourceType inViewController:(UIViewController *)vc {
-    if (sourceType == UIImagePickerControllerSourceTypeCamera || (sourceType == UIImagePickerControllerSourceTypePhotoLibrary && _allowEditing) || _maxCount <= 1)
-    {
+    if (sourceType == UIImagePickerControllerSourceTypeCamera) {
         if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
             UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
             imagePicker.sourceType = sourceType;
             imagePicker.delegate = self;
             imagePicker.allowsEditing = _allowEditing;
-            imagePicker.modalPresentationStyle = UIModalPresentationFormSheet;
             [vc presentViewController:imagePicker animated:YES completion:nil];
         }
         else {
@@ -82,14 +75,22 @@
     }
 }
 
-#pragma mark - private
++ (void)clearCacheFiles {
+    [[FileSystem shared] remove:[self cacheDir]];
+}
 
-- (NSString *)cacheDir {
-    return [[FileSystem shared].tmpDir stringByAppendingString:kImagePickerDir];
+#pragma mark - Private
+
++ (NSString *)cacheDir {
+    return [[FileSystem shared].tmpDir stringByAppendingPathComponent:kImagePickerDir];
 }
 
 - (NSString *)temporary {
-    return [[[FileSystem shared] temporary:[self cacheDir]] stringByAppendingString:@".jpg"];
+    NSString *dir = [SMImagePicker cacheDir];
+    if (_saveDir.notEmpty) {
+        dir = _saveDir;
+    }
+    return [[[FileSystem shared] temporary:dir] stringByAppendingPathExtension:@"jpg"];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -141,8 +142,7 @@
 
 #pragma mark - ELCImagePickerControllerDelegate
 
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
-{
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
     [SMHud showProgress];
     NSMutableArray *images = [[NSMutableArray alloc] initWithCapacity:info.count];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

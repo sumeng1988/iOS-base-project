@@ -14,14 +14,17 @@
 
 @property (nonatomic, weak) id<SMImagePickerDelegate> delegate;
 @property (nonatomic, assign) BOOL allowEditing;
-@property (nonatomic, assign) NSInteger maxCount;  // >1 multiple
+@property (nonatomic, assign) NSInteger maxCount;
 @property (nonatomic, assign) CGSize thumbSize;
 @property (nonatomic, assign) UIViewContentMode thumbMode;
-@property (nonatomic, readonly) NSMutableArray *paths;
+@property (nonatomic, strong, readonly) NSMutableArray *paths;
+@property (nonatomic, copy) NSString *saveDir;
 
 - (id)initWithDelegate:(id<SMImagePickerDelegate>)delegate;
 - (void)executeInViewController:(UIViewController *)vc;
 - (void)execute:(UIImagePickerControllerSourceType)sourceType inViewController:(UIViewController *)vc;
+
++ (void)clearCacheFiles;
 
 @end
 

@@ -73,10 +73,10 @@ SHARED_IMPL
     NSString *file = [NSString UUID];
     if (dir.notEmpty) {
         [self mkdir:dir];
-        return [dir stringByAppendingString:file];
+        return [dir stringByAppendingPathComponent:file];
     }
     else {
-        return [_tmpDir stringByAppendingString:file];
+        return [_tmpDir stringByAppendingPathComponent:file];
     }
 }
 
