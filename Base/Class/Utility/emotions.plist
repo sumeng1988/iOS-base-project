@@ -4,195 +4,147 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>[安慰]</string>
+		<string>[微笑]</string>
 		<key>image</key>
-		<string>emoji_anwei</string>
+		<string>e_1</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[撇嘴]</string>
+		<key>image</key>
+		<string>e_2</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[色]</string>
+		<key>image</key>
+		<string>e_3</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[发呆]</string>
+		<key>image</key>
+		<string>e_4</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[得意]</string>
+		<key>image</key>
+		<string>e_5</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[流泪]</string>
+		<key>image</key>
+		<string>e_6</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>[害羞]</string>
 		<key>image</key>
-		<string>emoji_haixiu</string>
+		<string>e_7</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[闭嘴]</string>
+		<key>image</key>
+		<string>e_8</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[睡]</string>
+		<key>image</key>
+		<string>e_9</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>[大哭]</string>
 		<key>image</key>
-		<string>emoji_daku</string>
+		<string>e_10</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[憧憬]</string>
+		<string>[尴尬]</string>
 		<key>image</key>
-		<string>emoji_chongjing</string>
+		<string>e_11</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[嗨皮]</string>
+		<string>[发怒]</string>
 		<key>image</key>
-		<string>emoji_haipi</string>
+		<string>e_12</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[眯眼]</string>
+		<string>[调皮]</string>
 		<key>image</key>
-		<string>emoji_miyan</string>
+		<string>e_13</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[生气]</string>
+		<string>[呲牙]</string>
 		<key>image</key>
-		<string>emoji_shengqi</string>
+		<string>e_14</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[爱爱]</string>
+		<string>[惊讶]</string>
 		<key>image</key>
-		<string>emoji_aiai</string>
+		<string>e_15</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[晕]</string>
+		<string>[难过]</string>
 		<key>image</key>
-		<string>emoji_yun</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[抱抱]</string>
-		<key>image</key>
-		<string>emoji_baobao</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[卖萌]</string>
-		<key>image</key>
-		<string>emoji_maimeng</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[叹气]</string>
-		<key>image</key>
-		<string>emoji_tanqi</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[高兴]</string>
-		<key>image</key>
-		<string>emoji_gaoxing</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[惊呆]</string>
-		<key>image</key>
-		<string>emoji_jingdai</string>
+		<string>e_16</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>[酷]</string>
 		<key>image</key>
-		<string>emoji_ku</string>
+		<string>e_17</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[犯二]</string>
+		<string>[冷汗]</string>
 		<key>image</key>
-		<string>emoji_faner</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[嘟嘴]</string>
-		<key>image</key>
-		<string>emoji_duzui</string>
+		<string>e_18</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>[抓狂]</string>
 		<key>image</key>
-		<string>emoji_zhuakuang</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[疑问]</string>
-		<key>image</key>
-		<string>emoji_yiwen</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[再见]</string>
-		<key>image</key>
-		<string>emoji_zaijian</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[贱兮兮]</string>
-		<key>image</key>
-		<string>emoji_jianxixi</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[臭臭]</string>
-		<key>image</key>
-		<string>emoji_chouchou</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[反省]</string>
-		<key>image</key>
-		<string>emoji_fanxing</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[坏笑]</string>
-		<key>image</key>
-		<string>emoji_huaixiao</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[鄙视]</string>
-		<key>image</key>
-		<string>emoji_bishi</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[点赞]</string>
-		<key>image</key>
-		<string>emoji_dianzan</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[花心]</string>
-		<key>image</key>
-		<string>emoji_huaxin</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>[萌萌]</string>
-		<key>image</key>
-		<string>emoji_mengmeng</string>
+		<string>e_19</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>[吐]</string>
 		<key>image</key>
-		<string>emoji_tu</string>
+		<string>e_20</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[挖鼻]</string>
+		<string>[偷笑]</string>
 		<key>image</key>
-		<string>emoji_wabi</string>
+		<string>e_21</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[乖]</string>
+		<string>[可爱]</string>
 		<key>image</key>
-		<string>emoji_guai</string>
+		<string>e_22</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>[滴汗]</string>
+		<string>[白眼]</string>
 		<key>image</key>
-		<string>emoji_dihan</string>
+		<string>e_23</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>[傲慢]</string>
+		<key>image</key>
+		<string>e_24</string>
 	</dict>
 </array>
 </plist>

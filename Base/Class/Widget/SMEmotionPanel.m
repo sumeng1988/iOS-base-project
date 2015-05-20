@@ -92,7 +92,7 @@
         if (!itemView.hidden) {
             NSString *emotion = [emotions objectAtIndex:i];
             itemView.emotion = emotion;
-            itemView.imageView.image = [[SMEmotionInfo shared] imageForKey:emotion size:SMEmotionSizeLarge];
+            itemView.imageView.image = [[SMEmotionInfo shared] imageForKey:emotion];
         }
     }
 }
@@ -134,6 +134,8 @@
     _scrollView.pagingEnabled = YES;
     _scrollView.alwaysBounceHorizontal = YES;
     _scrollView.delegate = self;
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.showsVerticalScrollIndicator = NO;
     [self addSubview:_scrollView];
     
     NSArray *emotions = [[SMEmotionInfo shared] all];

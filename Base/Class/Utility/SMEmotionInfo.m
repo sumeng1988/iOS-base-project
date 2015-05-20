@@ -40,25 +40,11 @@ SHARED_IMPL
 }
 
 - (UIImage *)imageForKey:(NSString *)key {
-    return [self imageForKey:key size:SMEmotionSizeSmall];
-}
-
-- (UIImage *)imageForKey:(NSString *)key size:(SMEmotionSize)size {
     for (int i = 0; i < _names.count; i++) {
         NSString *name = [_names objectAtIndex:i];
         if ([name isEqualToString:key]) {
             NSString *image = [_images objectAtIndex:i];
             if (image.notEmpty) {
-                switch (size) {
-                    case SMEmotionSizeSmall:
-                        image = [image stringByAppendingString:@"_s"];
-                        break;
-                    case SMEmotionSizeLarge:
-                        image = [image stringByAppendingString:@"_l"];
-                        break;
-                    default:
-                        break;
-                }
                 return [UIImage imageNamed:image];
             }
             break;

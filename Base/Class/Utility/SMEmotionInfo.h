@@ -8,18 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum _SMEmotionSize {
-    SMEmotionSizeSmall = 0,
-    SMEmotionSizeLarge
-}SMEmotionSize;
-
 @interface SMEmotionInfo : NSObject
 
 SHARED_DECL
 
 - (NSArray *)all;
 - (UIImage *)imageForKey:(NSString *)key;
-- (UIImage *)imageForKey:(NSString *)key size:(SMEmotionSize)size;
 
 @end
 
