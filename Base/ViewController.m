@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "SocketCreateVC.h"
 #import "PhotosVC.h"
+#import "PickImagesVC.h"
 
 @interface ViewController ()
 
@@ -21,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _datas = @[@"Socket Demo", @"Photo Browser Demo"];
+    self.title = @"Demo";
+    _datas = @[@"Socket Demo", @"Photo Browser Demo", @"Image Picker Demo"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -53,6 +55,10 @@
     }
     else if (indexPath.row == 1) {
         PhotosVC *vc = [[PhotosVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 2) {
+        PickImagesVC *vc = [[PickImagesVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
