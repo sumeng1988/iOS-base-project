@@ -15,6 +15,6 @@
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
 #import "UIView+ViewController.h"
-#import "UIImage+Stretch.h"
-#import "UIImage+Resize.h"
+#import "UIView+Snapshot.h"
+#import "UIImage+Effects.h"
 #import "UIControl+Blocks.h"

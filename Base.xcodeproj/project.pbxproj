@@ -172,13 +172,14 @@
 		7EB7388B1AE5FFF6000136E3 /* NSString+Value.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7387B1AE5FFF6000136E3 /* NSString+Value.m */; };
 		7EB7388C1AE5FFF6000136E3 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7387D1AE5FFF6000136E3 /* UIColor+Hex.m */; };
 		7EB7388D1AE5FFF6000136E3 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7387F1AE5FFF6000136E3 /* UIControl+Blocks.m */; };
-		7EB7388E1AE5FFF6000136E3 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738811AE5FFF6000136E3 /* UIImage+Resize.m */; };
-		7EB7388F1AE5FFF6000136E3 /* UIImage+Stretch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */; };
 		7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738851AE5FFF6000136E3 /* UIView+Frame.m */; };
 		7EB738941AE60025000136E3 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB738931AE60025000136E3 /* NSObject+Swizzle.m */; };
 		7EB7389D1AE602A2000136E3 /* Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7389C1AE602A2000136E3 /* Swizzle.m */; };
 		7EC1E98E1B0DC8F6001D2AB4 /* ImagePickerChecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EC1E98D1B0DC8F6001D2AB4 /* ImagePickerChecked@2x.png */; };
 		7EC1E9911B0F1496001D2AB4 /* PickImagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9901B0F1496001D2AB4 /* PickImagesVC.m */; };
+		7EC1E9981B11B0E8001D2AB4 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9971B11B0E8001D2AB4 /* UIView+Snapshot.m */; };
+		7EC1E99A1B11B7BB001D2AB4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC1E9991B11B7BB001D2AB4 /* GPUImage.framework */; };
+		7EC1E99D1B11B808001D2AB4 /* UIImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E99C1B11B808001D2AB4 /* UIImage+Effects.m */; };
 		7EC8724B1AEDD34A009D216A /* SocketCreateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */; };
 		7EC8724E1AEDD4C9009D216A /* SocketCommunicateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724D1AEDD4C9009D216A /* SocketCommunicateVC.m */; };
 		7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */; };
@@ -501,10 +502,6 @@
 		7EB7387D1AE5FFF6000136E3 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		7EB7387E1AE5FFF6000136E3 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
 		7EB7387F1AE5FFF6000136E3 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
-		7EB738801AE5FFF6000136E3 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		7EB738811AE5FFF6000136E3 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		7EB738821AE5FFF6000136E3 /* UIImage+Stretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Stretch.h"; sourceTree = "<group>"; };
-		7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Stretch.m"; sourceTree = "<group>"; };
 		7EB738841AE5FFF6000136E3 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		7EB738851AE5FFF6000136E3 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		7EB738921AE60025000136E3 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
@@ -514,6 +511,11 @@
 		7EC1E98D1B0DC8F6001D2AB4 /* ImagePickerChecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImagePickerChecked@2x.png"; sourceTree = "<group>"; };
 		7EC1E98F1B0F1496001D2AB4 /* PickImagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickImagesVC.h; sourceTree = "<group>"; };
 		7EC1E9901B0F1496001D2AB4 /* PickImagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickImagesVC.m; sourceTree = "<group>"; };
+		7EC1E9961B11B0E8001D2AB4 /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
+		7EC1E9971B11B0E8001D2AB4 /* UIView+Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snapshot.m"; sourceTree = "<group>"; };
+		7EC1E9991B11B7BB001D2AB4 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUImage.framework; sourceTree = "<group>"; };
+		7EC1E99B1B11B808001D2AB4 /* UIImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effects.h"; sourceTree = "<group>"; };
+		7EC1E99C1B11B808001D2AB4 /* UIImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effects.m"; sourceTree = "<group>"; };
 		7EC872491AEDD34A009D216A /* SocketCreateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketCreateVC.h; sourceTree = "<group>"; };
 		7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketCreateVC.m; sourceTree = "<group>"; };
 		7EC8724C1AEDD4C9009D216A /* SocketCommunicateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketCommunicateVC.h; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 			files = (
 				7E8C7FB21B0C83610034B337 /* AssetsLibrary.framework in Frameworks */,
 				7E7E83F91AE010B9007C3D7F /* libsqlite3.dylib in Frameworks */,
+				7EC1E99A1B11B7BB001D2AB4 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +997,7 @@
 				7E7E83791AE005C9007C3D7F /* DACircularProgress */,
 				7EB2DDEE1ADFFC7E00D3C265 /* ELCImagePicker */,
 				7EB2DE1D1AE0017600D3C265 /* FMDB */,
+				7EC1E9991B11B7BB001D2AB4 /* GPUImage.framework */,
 				7EB2DE2E1AE001E900D3C265 /* MBProgressHUD */,
 				7EB2DE321AE0031700D3C265 /* MJRefresh */,
 				7E7E83A71AE005ED007C3D7F /* MWPhotoBrowser */,
@@ -1129,14 +1133,14 @@
 				7EB7387D1AE5FFF6000136E3 /* UIColor+Hex.m */,
 				7EB7387E1AE5FFF6000136E3 /* UIControl+Blocks.h */,
 				7EB7387F1AE5FFF6000136E3 /* UIControl+Blocks.m */,
-				7EB738801AE5FFF6000136E3 /* UIImage+Resize.h */,
-				7EB738811AE5FFF6000136E3 /* UIImage+Resize.m */,
-				7EB738821AE5FFF6000136E3 /* UIImage+Stretch.h */,
-				7EB738831AE5FFF6000136E3 /* UIImage+Stretch.m */,
+				7EC1E99B1B11B808001D2AB4 /* UIImage+Effects.h */,
+				7EC1E99C1B11B808001D2AB4 /* UIImage+Effects.m */,
 				7EB738841AE5FFF6000136E3 /* UIView+Frame.h */,
 				7EB738851AE5FFF6000136E3 /* UIView+Frame.m */,
 				7E0AE4F11AF8CA6300C9C9CE /* UIView+ViewController.h */,
 				7E0AE4F21AF8CA6300C9C9CE /* UIView+ViewController.m */,
+				7EC1E9961B11B0E8001D2AB4 /* UIView+Snapshot.h */,
+				7EC1E9971B11B0E8001D2AB4 /* UIView+Snapshot.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1362,10 +1366,10 @@
 				7EC8724B1AEDD34A009D216A /* SocketCreateVC.m in Sources */,
 				7EB7388B1AE5FFF6000136E3 /* NSString+Value.m in Sources */,
 				7E1716F81AE11CA10091E09C /* ApiModel.m in Sources */,
-				7EB7388E1AE5FFF6000136E3 /* UIImage+Resize.m in Sources */,
 				7EB2DE081ADFFC7E00D3C265 /* ELCAssetCell.m in Sources */,
 				7E7E83E31AE00768007C3D7F /* PSTCollectionViewController.m in Sources */,
 				7E7E83EF1AE007CA007C3D7F /* Keyboard.m in Sources */,
+				7EC1E99D1B11B808001D2AB4 /* UIImage+Effects.m in Sources */,
 				7E7E836E1AE00573007C3D7F /* SDWebImageDecoder.m in Sources */,
 				7EC1E9911B0F1496001D2AB4 /* PickImagesVC.m in Sources */,
 				7EB2DD971ADFCA5D00D3C265 /* Context.m in Sources */,
@@ -1381,6 +1385,7 @@
 				7EB7389D1AE602A2000136E3 /* Swizzle.m in Sources */,
 				7EB738901AE5FFF6000136E3 /* UIView+Frame.m in Sources */,
 				7EC872551AEDD78A009D216A /* GCDAsyncUdpSocket.m in Sources */,
+				7EC1E9981B11B0E8001D2AB4 /* UIView+Snapshot.m in Sources */,
 				7EB738891AE5FFF6000136E3 /* NSMutableDictionary+Value.m in Sources */,
 				7EB2DE501AE0031700D3C265 /* MJRefreshGifHeader.m in Sources */,
 				7E7E83BC1AE005ED007C3D7F /* MWGridCell.m in Sources */,
@@ -1447,7 +1452,6 @@
 				7E1716F01AE1170A0091E09C /* AFURLResponseSerialization.m in Sources */,
 				7E7E83F51AE00A78007C3D7F /* SMHud.m in Sources */,
 				7E7E83781AE00573007C3D7F /* UIView+WebCacheOperation.m in Sources */,
-				7EB7388F1AE5FFF6000136E3 /* UIImage+Stretch.m in Sources */,
 				7E7E83701AE00573007C3D7F /* SDWebImageDownloaderOperation.m in Sources */,
 				7E7E84151AE02E58007C3D7F /* NSArray+PureLayout.m in Sources */,
 				7EB7388C1AE5FFF6000136E3 /* UIColor+Hex.m in Sources */,
@@ -1584,6 +1588,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Base/Class/Libs",
+				);
 				GCC_PREFIX_HEADER = "Base/Base-Prefix.pch";
 				INFOPLIST_FILE = Base/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1597,6 +1605,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Base/Class/Libs",
+				);
 				GCC_PREFIX_HEADER = "Base/Base-Prefix.pch";
 				INFOPLIST_FILE = Base/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
