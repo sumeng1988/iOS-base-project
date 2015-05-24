@@ -9,6 +9,35 @@
 #import "SocketCommunicateVC.h"
 #import "SocketHelper.h"
 #import "SMInputBar.h"
+#import "SMEmotionLabel.h"
+
+@interface SocketCommunicateCell : UITableViewCell
+
+@property (nonatomic, strong) SMEmotionLabel *contentLbl;
+
+@end
+
+@implementation SocketCommunicateCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        _contentLbl = [[SMEmotionLabel alloc] init];
+        _contentLbl.backgroundColor = [UIColor clearColor];
+        _contentLbl.font = [UIFont systemFontOfSize:17];
+        _contentLbl.textColor = [UIColor blackColor];
+        [self.contentView addSubview:_contentLbl];
+    }
+    return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [_contentLbl sizeToFit];
+    _contentLbl.leftCenter = CGPointMake(10, self.contentView.height/2);
+}
+
+@end
 
 @interface SocketCommunicateVC () <SocketHelperDelegate, SMInputBarDelegate>
 
@@ -64,9 +93,9 @@
 }
 
 - (void)insertMsg:(NSString *)msg {
-    [_datas insertObject:msg atIndex:0];
+    [_datas addObject:msg];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_datas.count-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -141,11 +170,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *sCellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:sCellId];
+    SocketCommunicateCell *cell = [tableView dequeueReusableCellWithIdentifier:sCellId];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellId];
+        cell = [[SocketCommunicateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellId];
     }
-    cell.textLabel.text = _datas[indexPath.row];
+    cell.contentLbl.text = _datas[indexPath.row];
     return cell;
 }
 
@@ -169,6 +198,7 @@
 - (void)inputBar:(SMInputBar *)bar sendText:(NSString *)text {
     LOG(@"inputBar sendText:%@", text);
     [self sendMsg:text];
+    bar.text = @"";
 }
 
 - (void)inputBar:(SMInputBar *)bar sendImages:(NSArray *)paths {
