@@ -21,7 +21,6 @@
 @property (nonatomic, copy) NSString *saveDir;
 
 - (id)initWithDelegate:(id<SMImagePickerDelegate>)delegate;
-- (void)executeInViewController:(UIViewController *)vc;
 - (void)execute:(UIImagePickerControllerSourceType)sourceType inViewController:(UIViewController *)vc;
 
 + (void)clearCacheFiles;

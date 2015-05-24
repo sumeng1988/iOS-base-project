@@ -8,10 +8,11 @@
 
 #import "SMImagePicker.h"
 #import "ELCImagePickerController.h"
+#import <objc/runtime.h>
 
 #define kImagePickerDir @"ImagePicker"
 
-@interface SMImagePicker () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ELCImagePickerControllerDelegate>
+@interface SMImagePicker () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, ELCImagePickerControllerDelegate>
 
 @property (nonatomic, weak) UIViewController *vc;
 
@@ -39,39 +40,49 @@
 
 #pragma mark - Public
 
-- (void)executeInViewController:(UIViewController *)vc {
-    [Keyboard close];
-    self.vc = vc;
-    
-    UIActionSheet* action = [[UIActionSheet alloc] initWithTitle:@"选择照片"
-                                                        delegate:self
-                                               cancelButtonTitle:@"取消"
-                                          destructiveButtonTitle:nil
-                                               otherButtonTitles:@"拍照", @"从相册中选择", nil];
-    [action showInView:vc.view];
-}
+static void *__s_image_picker_key;
 
 - (void)execute:(UIImagePickerControllerSourceType)sourceType inViewController:(UIViewController *)vc {
     if (sourceType == UIImagePickerControllerSourceTypeCamera) {
         if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-            imagePicker.sourceType = sourceType;
-            imagePicker.delegate = self;
-            imagePicker.allowsEditing = _allowEditing;
-            [vc presentViewController:imagePicker animated:YES completion:nil];
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.sourceType = sourceType;
+            picker.delegate = self;
+            picker.allowsEditing = _allowEditing;
+            [vc presentViewController:picker animated:YES completion:nil];
+            
+            objc_setAssociatedObject(picker, &__s_image_picker_key, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         else {
-            [SMHud text:@"inavailable"];
+            [SMHud text:@"camera inavailable"];
         }
     }
     else {
-        ELCImagePickerController *picker = [[ELCImagePickerController alloc] initImagePicker];
-        picker.maximumImagesCount = _maxCount;
-        picker.returnsImage = YES;
-        picker.onOrder = YES;
-        picker.imagePickerDelegate = self;
-        picker.returnsOriginalImage = YES;
-        [vc presentViewController:picker animated:YES completion:nil];
+        if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+            if (_maxCount == 1 && _allowEditing) {
+                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                picker.sourceType = sourceType;
+                picker.delegate = self;
+                picker.allowsEditing = _allowEditing;
+                [vc presentViewController:picker animated:YES completion:nil];
+                
+                objc_setAssociatedObject(picker, &__s_image_picker_key, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+            else {
+                ELCImagePickerController *picker = [[ELCImagePickerController alloc] initImagePicker];
+                picker.maximumImagesCount = _maxCount;
+                picker.returnsImage = YES;
+                picker.onOrder = YES;
+                picker.imagePickerDelegate = self;
+                picker.returnsOriginalImage = YES;
+                [vc presentViewController:picker animated:YES completion:nil];
+                
+                objc_setAssociatedObject(picker, &__s_image_picker_key, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+        }
+        else {
+            [SMHud text:@"gallery inavailable"];
+        }
     }
 }
 
@@ -91,17 +102,6 @@
         dir = _saveDir;
     }
     return [[[FileSystem shared] temporary:dir] stringByAppendingPathExtension:@"jpg"];
-}
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == actionSheet.cancelButtonIndex) {
-        return;
-    }
-    
-    UIImagePickerControllerSourceType sourceType = (buttonIndex == 1 ? UIImagePickerControllerSourceTypePhotoLibrary : UIImagePickerControllerSourceTypeCamera);
-    [self execute:sourceType inViewController:_vc];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -125,19 +125,17 @@
         thumbImages = @[thumbImage];
     }
     
-    [picker dismissViewControllerAnimated:YES completion:^{
-        if (_delegate && [_delegate respondsToSelector:@selector(imagePicker:successed:)]) {
-            [_delegate imagePicker:self successed:thumbImages];
-        }
-    }];
+    if (_delegate && [_delegate respondsToSelector:@selector(imagePicker:successed:)]) {
+        [_delegate imagePicker:self successed:thumbImages];
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:^{
-        if (_delegate && [_delegate respondsToSelector:@selector(imagePickerFailed:)]) {
-            [_delegate imagePickerFailed:self];
-        }
-    }];
+    if (_delegate && [_delegate respondsToSelector:@selector(imagePickerFailed:)]) {
+        [_delegate imagePickerFailed:self];
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - ELCImagePickerControllerDelegate
@@ -158,21 +156,19 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [SMHud hideProgress];
-            [picker dismissViewControllerAnimated:YES completion:^{
-                if (_delegate && [_delegate respondsToSelector:@selector(imagePicker:successed:)]) {
-                    [_delegate imagePicker:self successed:images];
-                }
-            }];
+            if (_delegate && [_delegate respondsToSelector:@selector(imagePicker:successed:)]) {
+                [_delegate imagePicker:self successed:images];
+            }
+            [picker dismissViewControllerAnimated:YES completion:nil];
         });
     });
 }
 
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:^{
-        if (_delegate && [_delegate respondsToSelector:@selector(imagePickerFailed:)]) {
-            [_delegate imagePickerFailed:self];
-        }
-    }];
+    if (_delegate && [_delegate respondsToSelector:@selector(imagePickerFailed:)]) {
+        [_delegate imagePickerFailed:self];
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
