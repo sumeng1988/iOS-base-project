@@ -8,6 +8,7 @@
 
 #import "SMImageView.h"
 #import "UIImageView+WebCache.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation SMImageView
 
@@ -59,6 +60,17 @@
     }
     else if ([imageDataSource isKindOfClass:[NSURL class]]) {
         [self __setImageWithURL:imageDataSource];
+    }
+    else if ([imageDataSource isKindOfClass:[ALAsset class]]) {
+        ALAsset *asset = imageDataSource;
+        ALAssetRepresentation *rep = [asset defaultRepresentation];
+        CGImageRef ref = [rep fullScreenImage];
+        if (ref) {
+            self.image = [UIImage imageWithCGImage:ref];
+        }
+        else {
+            self.image = _placeholderImage;
+        }
     }
     else {
         self.image = _placeholderImage;

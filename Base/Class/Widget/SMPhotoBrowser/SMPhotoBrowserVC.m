@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 sumeng. All rights reserved.
 //
 
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "SMPhotoBrowserVC.h"
 #import "SMPhotoView.h"
 #import "SDWebImageManager.h"
@@ -273,6 +274,14 @@
         if ([manager cachedImageExistsForURL:imageDataSource]) {
             NSString *key = [manager cacheKeyForURL:imageDataSource];
             return [manager.imageCache imageFromDiskCacheForKey:key];
+        }
+    }
+    else if ([imageDataSource isKindOfClass:[ALAsset class]]) {
+        ALAsset *asset = imageDataSource;
+        ALAssetRepresentation *rep = [asset defaultRepresentation];
+        CGImageRef ref = [rep fullScreenImage];
+        if (ref) {
+            return [UIImage imageWithCGImage:ref];
         }
     }
     return nil;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 sumeng. All rights reserved.
 //
 
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "SMPhotoView.h"
 #import "UIImageView+WebCache.h"
 #import "ImageUtils.h"
@@ -94,6 +95,17 @@
     }
     else if ([imageDataSource isKindOfClass:[NSURL class]]) {
         [self __setImageWithURL:imageDataSource];
+    }
+    else if ([imageDataSource isKindOfClass:[ALAsset class]]) {
+        ALAsset *asset = imageDataSource;
+        ALAssetRepresentation *rep = [asset defaultRepresentation];
+        CGImageRef ref = [rep fullScreenImage];
+        if (ref) {
+            [self __setImage:imageDataSource];
+        }
+        else {
+            [self __setImage:_placeholderImage];
+        }
     }
     else {
         [self __setImage:_placeholderImage];
