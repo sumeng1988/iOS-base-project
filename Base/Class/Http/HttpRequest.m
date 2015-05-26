@@ -17,7 +17,7 @@ SHARED_IMPL
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kHttpBaseUrl]];
+        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kHttpBaseUrl]];
         
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     }

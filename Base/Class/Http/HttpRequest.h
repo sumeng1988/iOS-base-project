@@ -11,7 +11,7 @@
 
 @interface HttpRequest : NSObject
 
-@property (nonatomic, strong, readonly) AFHTTPRequestOperationManager *manager;
+@property (nonatomic, strong, readonly) AFHTTPSessionManager *manager;
 
 SHARED_DECL
 

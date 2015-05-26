@@ -44,15 +44,16 @@
     }
     [[HttpRequest shared].manager GET:[self url]
                            parameters:(_params.count > 0 ? _params : nil)
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [self onSuccess:operation
-                                       responseObject:responseObject
-                                              success:success
-                                              failure:failure];
-                              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [self onFailure:operation
-                                                error:error
-                                              failure:failure];
+                              success:^(NSURLSessionDataTask *task, id responseObject) {
+                                  [self onSuccess:task
+                                   responseObject:responseObject
+                                          success:success
+                                          failure:failure];
+                              }
+                              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                  [self onFailure:task
+                                            error:error
+                                          failure:failure];
                               }];
 }
 
@@ -68,29 +69,31 @@
                  constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                      [self addMultipart:formData];
                  }
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [self onSuccess:operation
-                                            responseObject:responseObject
-                                                   success:success
-                                                   failure:failure];
-                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                       [self onFailure:operation
-                                                     error:error
-                                                   failure:failure];
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       [self onSuccess:task
+                                        responseObject:responseObject
+                                               success:success
+                                               failure:failure];
+                                   }
+                                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       [self onFailure:task
+                                                 error:error
+                                               failure:failure];
                                    }];
     }
     else {
         [[HttpRequest shared].manager POST:[self url]
                                 parameters:_params
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [self onSuccess:operation
-                                            responseObject:responseObject
-                                                   success:success
-                                                   failure:failure];
-                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                       [self onFailure:operation
-                                                     error:error
-                                                   failure:failure];
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       [self onSuccess:task
+                                        responseObject:responseObject
+                                               success:success
+                                               failure:failure];
+                                   }
+                                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       [self onFailure:task
+                                                 error:error
+                                               failure:failure];
                                    }];
     }
 }
@@ -103,13 +106,14 @@
     }
     [[HttpRequest shared].manager PUT:[self url]
                            parameters:_params
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [self onSuccess:operation
+                              success:^(NSURLSessionDataTask *task, id responseObject) {
+                                  [self onSuccess:task
                                    responseObject:responseObject
                                           success:success
                                           failure:failure];
-                              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [self onFailure:operation
+                              }
+                              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                  [self onFailure:task
                                             error:error
                                           failure:failure];
                               }];
@@ -122,17 +126,18 @@
         [SMHud showProgressInView:_waitingView];
     }
     [[HttpRequest shared].manager DELETE:[self url]
-                           parameters:_params
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [self onSuccess:operation
-                                   responseObject:responseObject
-                                          success:success
-                                          failure:failure];
-                              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [self onFailure:operation
-                                            error:error
-                                          failure:failure];
-                              }];
+                              parameters:_params
+                                 success:^(NSURLSessionDataTask *task, id responseObject) {
+                                     [self onSuccess:task
+                                      responseObject:responseObject
+                                             success:success
+                                             failure:failure];
+                                 }
+                                 failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                     [self onFailure:task
+                                               error:error
+                                             failure:failure];
+                                 }];
 }
 
 - (void)setParam:(NSString *)key value:(id)value {
@@ -159,7 +164,7 @@
 
 #pragma mark - private
 
-- (void)onSuccess:(AFHTTPRequestOperation *)operation
+- (void)onSuccess:(NSURLSessionDataTask *)task
    responseObject:(id)responseObject
           success:(void (^)(ApiResponse *response))success
           failure:(void (^)(ApiRspMeta *meta))failure
@@ -171,16 +176,16 @@
     if ([responseObject isKindOfClass:[NSDictionary class]]) {
         ApiResponse *rsp = [[ApiResponse alloc] init];
         Class cls = nil;
-        if ([operation.request.HTTPMethod isEqualToString:@"GET"]) {
+        if ([task.originalRequest.HTTPMethod isEqualToString:@"GET"]) {
             cls = _clsRspDataGET;
         }
-        else if ([operation.request.HTTPMethod isEqualToString:@"POST"]) {
+        else if ([task.originalRequest.HTTPMethod isEqualToString:@"POST"]) {
             cls = _clsRspDataPOST;
         }
-        else if ([operation.request.HTTPMethod isEqualToString:@"PUT"]) {
+        else if ([task.originalRequest.HTTPMethod isEqualToString:@"PUT"]) {
             cls = _clsRspDataPUT;
         }
-        else if ([operation.request.HTTPMethod isEqualToString:@"DELETE"]) {
+        else if ([task.originalRequest.HTTPMethod isEqualToString:@"DELETE"]) {
             cls = _clsRspDataDELETE;
         }
         rsp.data = [[cls alloc] init];
@@ -205,7 +210,7 @@
     }
 }
 
-- (void)onFailure:(AFHTTPRequestOperation *)operation
+- (void)onFailure:(NSURLSessionDataTask *)task
             error:(NSError *)error
           failure:(void (^)(ApiRspMeta *meta))failure
 {
