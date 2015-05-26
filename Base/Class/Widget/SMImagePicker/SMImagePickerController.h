@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) ALAssetsFilter *assetsFilter;
 
-@property (nonatomic, strong) NSArray *selectedAssets;
+@property (nonatomic, strong) NSArray *pickedAssets;
 
 @property (nonatomic, assign) NSInteger maximumNumberOfSelection;
 
@@ -30,7 +30,7 @@
 
 @optional
 
-- (void)smImagePickerController:(SMImagePickerController *)picker didFinishPickingMediaWithAssets:(NSArray *)asset;
+- (void)smImagePickerController:(SMImagePickerController *)picker didFinishPickingMediaWithAssets:(NSArray *)assets;
 
 - (void)smImagePickerControllerDidCancel:(SMImagePickerController *)picker;
 

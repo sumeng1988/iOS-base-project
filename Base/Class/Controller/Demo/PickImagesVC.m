@@ -7,7 +7,7 @@
 //
 
 #import "PickImagesVC.h"
-#import "SMImagePickerController.h"
+#import "SMImagePicker.h"
 
 @interface PickCell : UICollectionViewCell
 
@@ -31,10 +31,10 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
-@interface PickImagesVC () <SMImagePickerControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface PickImagesVC () <SMImagePickerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray *selectedAssets;
+@property (nonatomic, strong) NSMutableArray *pickedInfos;
 @property (nonatomic, strong) UIBarButtonItem *addItem;
 @property (nonatomic, strong) UIBarButtonItem *clearItem;
 
@@ -50,7 +50,7 @@ static NSString * const reuseIdentifier = @"Cell";
     _clearItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(clear)];
     self.navigationItem.rightBarButtonItems = @[_clearItem, _addItem];
     
-    _selectedAssets = [[NSMutableArray alloc] init];
+    _pickedInfos = [[NSMutableArray alloc] init];
     
     CGFloat w = (MIN(kUIScreenSize.width, kUIScreenSize.height) - (4 + 1) * 2) / 4;
     
@@ -73,18 +73,17 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (void)refreshItems {
-    _clearItem.enabled = _selectedAssets.count > 0;
+    _clearItem.enabled = _pickedInfos.count > 0;
 }
 
 - (void)add {
-    SMImagePickerController *picker = [[SMImagePickerController alloc] init];
-    picker.imagePickerDelegate = self;
-    picker.selectedAssets = _selectedAssets;
-    [self presentViewController:picker animated:YES completion:nil];
+    SMImagePicker *picker = [[SMImagePicker alloc] initWithDelegate:self];
+    picker.maximumNumberOfSelection = 9 - _pickedInfos.count;
+    [picker execute:UIImagePickerControllerSourceTypePhotoLibrary inViewController:self];
 }
 
 - (void)clear {
-    [_selectedAssets removeAllObjects];
+    [_pickedInfos removeAllObjects];
     [_collectionView reloadData];
     
     [self refreshItems];
@@ -98,14 +97,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _selectedAssets.count;
+    return _pickedInfos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PickCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    ALAsset *asset = _selectedAssets[indexPath.row];
-    cell.imageView.image = [UIImage imageWithCGImage:[asset thumbnail]];
+    NSDictionary *info = _pickedInfos[indexPath.row];
+    cell.imageView.image = [info objectForKey:kImagePickerThumbImage];
     
     return cell;
 }
@@ -120,15 +119,12 @@ static NSString * const reuseIdentifier = @"Cell";
     return UIEdgeInsetsMake(2+1, 2, 2, 2);
 }
 
-#pragma mark - SMImagePickerControllerDelegate
+#pragma mark - SMImagePickerDelegate
 
-- (void)smImagePickerController:(SMImagePickerController *)picker didFinishPickingMediaWithAssets:(NSArray *)asset {
-    [_selectedAssets removeAllObjects];
-    [_selectedAssets addObjectsFromArray:asset];
+- (void)imagePicker:(SMImagePicker *)picker didFinishPickingWithInfos:(NSArray *)infos {
+    [_pickedInfos addObjectsFromArray:infos];
     [_collectionView reloadData];
     [self refreshItems];
-    
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

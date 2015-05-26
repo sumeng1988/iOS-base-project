@@ -30,8 +30,6 @@
 @property (nonatomic, strong) SMEmotionPanel *emotionPanel;
 @property (nonatomic, strong) SMExtentionPanel *extentionPanel;
 
-@property (nonatomic, strong) SMImagePicker *picker;
-
 @end
 
 @implementation SMInputBar
@@ -348,20 +346,14 @@
     }
 }
 
-- (SMImagePicker *)picker {
-    if (_picker == nil) {
-        _picker = [[SMImagePicker alloc] initWithDelegate:self];
-        _picker.maxCount = 9;
-    }
-    return _picker;
-}
-
 - (void)onExtentionGalleryClicked:(id)sender {
-    [[self picker] execute:UIImagePickerControllerSourceTypePhotoLibrary inViewController:[self viewController]];
+    SMImagePicker *picker = [[SMImagePicker alloc] initWithDelegate:self];
+    [picker execute:UIImagePickerControllerSourceTypePhotoLibrary inViewController:[self viewController]];
 }
 
 - (void)onExtentionCameraClicked:(id)sender {
-    [[self picker] execute:UIImagePickerControllerSourceTypeCamera inViewController:[self viewController]];
+    SMImagePicker *picker = [[SMImagePicker alloc] initWithDelegate:self];
+    [picker execute:UIImagePickerControllerSourceTypeCamera inViewController:[self viewController]];
 }
 
 #pragma mark - UITextViewDelegate
@@ -430,8 +422,12 @@
 
 #pragma mark - SMImagePickerDelegate
 
-- (void)imagePicker:(SMImagePicker *)picker successed:(NSArray *)thumbImages {
-    [self sendImages:picker.paths];
+- (void)imagePicker:(SMImagePicker *)picker didFinishPickingWithInfos:(NSArray *)infos; {
+    NSMutableArray *paths = [[NSMutableArray alloc] initWithCapacity:infos.count];
+    for (NSDictionary *info in infos) {
+        [paths addObject:[info objectForKey:kImagePickerPath]];
+    }
+    [self sendImages:paths];
 }
 
 @end

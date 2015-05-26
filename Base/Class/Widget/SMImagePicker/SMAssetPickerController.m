@@ -53,7 +53,7 @@
 @interface SMAssetPickerController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray *datas;
-@property (nonatomic, strong) NSMutableArray *selectedAssets;
+@property (nonatomic, strong) NSMutableArray *pickedAssets;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UILabel *countLbl;
 @property (nonatomic, strong) UIButton *doneBtn;
@@ -112,12 +112,12 @@ static NSString * const reuseIdentifier = @"Cell";
     [bottomView addSubview:_countLbl];
     
     self.datas = [[NSMutableArray alloc] init];
-    self.selectedAssets = [[NSMutableArray alloc] init];
-    if (_picker.selectedAssets.count > 0) {
-        [_selectedAssets addObjectsFromArray:_picker.selectedAssets];
+    self.pickedAssets = [[NSMutableArray alloc] init];
+    if (_picker.pickedAssets.count > 0) {
+        [_pickedAssets addObjectsFromArray:_picker.pickedAssets];
     }
     
-    [self setSelectedCount:_selectedAssets.count];
+    [self setSelectedCount:_pickedAssets.count];
     
     [self preparePhotos];
 }
@@ -143,7 +143,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (BOOL)selected:(ALAsset *)aAsset {
     NSURL *assetUrl = [aAsset valueForProperty:ALAssetPropertyAssetURL];
-    for (ALAsset *asset in _selectedAssets) {
+    for (ALAsset *asset in _pickedAssets) {
         if ([assetUrl isEqual:[asset valueForProperty:ALAssetPropertyAssetURL]]) {
             return YES;
         }
@@ -153,9 +153,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)removeSelected:(ALAsset *)aAsset {
     NSURL *assetUrl = [aAsset valueForProperty:ALAssetPropertyAssetURL];
-    for (ALAsset *asset in _selectedAssets) {
+    for (ALAsset *asset in _pickedAssets) {
         if ([assetUrl isEqual:[asset valueForProperty:ALAssetPropertyAssetURL]]) {
-            [_selectedAssets removeObject:asset];
+            [_pickedAssets removeObject:asset];
             break;
         }
     }
@@ -169,7 +169,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (void)onDoneClicked:(id)sender {
-    [_picker finishPick:_selectedAssets group:_group];
+    [_picker finishPick:_pickedAssets group:_group];
 }
 
 - (void)setSelectedCount:(NSUInteger)count {
@@ -208,15 +208,15 @@ static NSString * const reuseIdentifier = @"Cell";
         [self removeSelected:model.asset];
     }
     else {
-        if (_selectedAssets.count < _picker.maximumNumberOfSelection) {
+        if (_pickedAssets.count < _picker.maximumNumberOfSelection) {
             model.selected = YES;
-            [_selectedAssets addObject:model.asset];
+            [_pickedAssets addObject:model.asset];
         }
     }
     SMAssetCell *cell = (SMAssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.checkedView.hidden = !model.selected;
     
-    [self setSelectedCount:_selectedAssets.count];
+    [self setSelectedCount:_pickedAssets.count];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{

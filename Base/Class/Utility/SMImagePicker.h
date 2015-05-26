@@ -8,16 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+#define kImagePickerPath @"Path"
+#define kImagePickerThumbImage @"ThumbImage"
+#define kImagePickerAsset @"Asset"
+
 @protocol SMImagePickerDelegate;
 
 @interface SMImagePicker : NSObject
 
 @property (nonatomic, weak) id<SMImagePickerDelegate> delegate;
 @property (nonatomic, assign) BOOL allowEditing;
-@property (nonatomic, assign) NSInteger maxCount;
+@property (nonatomic, assign) NSInteger maximumNumberOfSelection;
 @property (nonatomic, assign) CGSize thumbSize;
 @property (nonatomic, assign) UIViewContentMode thumbMode;
-@property (nonatomic, strong, readonly) NSMutableArray *paths;
 @property (nonatomic, copy) NSString *saveDir;
 
 - (id)initWithDelegate:(id<SMImagePickerDelegate>)delegate;
@@ -30,7 +33,8 @@
 @protocol SMImagePickerDelegate <NSObject>
 
 @optional
-- (void)imagePicker:(SMImagePicker *)picker successed:(NSArray *)thumbImages;
-- (void)imagePickerFailed:(SMImagePicker *)picker;
+
+- (void)imagePicker:(SMImagePicker *)picker didFinishPickingWithInfos:(NSArray *)infos;
+- (void)imagePickerDidCancel:(SMImagePicker *)picker;
 
 @end
