@@ -177,6 +177,7 @@
 		7EC8724E1AEDD4C9009D216A /* SocketCommunicateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724D1AEDD4C9009D216A /* SocketCommunicateVC.m */; };
 		7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */; };
 		7EC872551AEDD78A009D216A /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */; };
+		7ECEC6931B144606001EF8C3 /* SMPagedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECEC6921B144606001EF8C3 /* SMPagedView.m */; };
 		7EE3990D1AE123280069DAC2 /* ApiCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990C1AE123280069DAC2 /* ApiCommon.m */; };
 		7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */; };
 		7EF350F91B02F76C001630C2 /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF350F81B02F76C001630C2 /* ImageUtils.m */; };
@@ -506,6 +507,8 @@
 		7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		7EC872521AEDD78A009D216A /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		7ECEC6911B144606001EF8C3 /* SMPagedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPagedView.h; sourceTree = "<group>"; };
+		7ECEC6921B144606001EF8C3 /* SMPagedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPagedView.m; sourceTree = "<group>"; };
 		7EE3990B1AE123280069DAC2 /* ApiCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCommon.h; sourceTree = "<group>"; };
 		7EE3990C1AE123280069DAC2 /* ApiCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCommon.m; sourceTree = "<group>"; };
 		7EE3990E1AE1249D0069DAC2 /* ApiDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDemo.h; sourceTree = "<group>"; };
@@ -815,6 +818,8 @@
 				7E8C7F931B0C74030034B337 /* SMImagePicker */,
 				7E17AC031B00BE81001CE5F5 /* SMImageView.h */,
 				7E17AC041B00BE81001CE5F5 /* SMImageView.m */,
+				7ECEC6911B144606001EF8C3 /* SMPagedView.h */,
+				7ECEC6921B144606001EF8C3 /* SMPagedView.m */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1308,6 +1313,7 @@
 			files = (
 				7EB2DD541ADFC80F00D3C265 /* ViewController.m in Sources */,
 				7EB2DE4F1AE0031700D3C265 /* MJRefreshGifFooter.m in Sources */,
+				7ECEC6931B144606001EF8C3 /* SMPagedView.m in Sources */,
 				7E7E83BE1AE005ED007C3D7F /* MWPhoto.m in Sources */,
 				7E8C7FA61B0C74030034B337 /* SMPhotoBrowserVC.m in Sources */,
 				7E1716EC1AE1170A0091E09C /* AFNetworkReachabilityManager.m in Sources */,
