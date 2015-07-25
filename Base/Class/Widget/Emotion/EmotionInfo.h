@@ -1,5 +1,5 @@
 //
-//  SMEmotionInfo.h
+//  EmotionInfo.h
 //  Base
 //
 //  Created by sumeng on 5/5/15.
@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SMEmotionInfo : NSObject
+@interface EmotionInfo : NSObject
 
 SHARED_DECL
 
 - (NSArray *)all;
 - (UIImage *)imageForKey:(NSString *)key;
+
+- (NSAttributedString *)attributedString:(NSString *)text;
 
 @end
 

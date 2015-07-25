@@ -9,11 +9,10 @@
 #import "SocketCommunicateVC.h"
 #import "SocketHelper.h"
 #import "SMInputBar.h"
-#import "SMEmotionLabel.h"
 
 @interface SocketCommunicateCell : UITableViewCell
 
-@property (nonatomic, strong) SMEmotionLabel *contentLbl;
+@property (nonatomic, strong) UILabel *contentLbl;
 
 @end
 
@@ -22,7 +21,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _contentLbl = [[SMEmotionLabel alloc] init];
+        _contentLbl = [[UILabel alloc] init];
         _contentLbl.backgroundColor = [UIColor clearColor];
         _contentLbl.font = [UIFont systemFontOfSize:17];
         _contentLbl.textColor = [UIColor blackColor];

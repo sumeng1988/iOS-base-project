@@ -166,13 +166,6 @@
 		7EC1E9981B11B0E8001D2AB4 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9971B11B0E8001D2AB4 /* UIView+Snapshot.m */; };
 		7EC1E99A1B11B7BB001D2AB4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC1E9991B11B7BB001D2AB4 /* GPUImage.framework */; };
 		7EC1E99D1B11B808001D2AB4 /* UIImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E99C1B11B808001D2AB4 /* UIImage+Effects.m */; };
-		7EC1E9A21B11CB2C001D2AB4 /* emotions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EC1E99F1B11CB2B001D2AB4 /* emotions.plist */; };
-		7EC1E9A31B11CB2C001D2AB4 /* SMEmotionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9A11B11CB2C001D2AB4 /* SMEmotionInfo.m */; };
-		7EC1E9A61B11CB43001D2AB4 /* SMEmotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9A51B11CB43001D2AB4 /* SMEmotionLabel.m */; };
-		7EC1E9B11B11CBB2001D2AB4 /* M80AttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9A91B11CBB2001D2AB4 /* M80AttributedLabel.m */; };
-		7EC1E9B21B11CBB2001D2AB4 /* M80AttributedLabelAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9AB1B11CBB2001D2AB4 /* M80AttributedLabelAttachment.m */; };
-		7EC1E9B31B11CBB2001D2AB4 /* M80AttributedLabelURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9AE1B11CBB2001D2AB4 /* M80AttributedLabelURL.m */; };
-		7EC1E9B41B11CBB2001D2AB4 /* NSMutableAttributedString+M80.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E9B01B11CBB2001D2AB4 /* NSMutableAttributedString+M80.m */; };
 		7EC8724B1AEDD34A009D216A /* SocketCreateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */; };
 		7EC8724E1AEDD4C9009D216A /* SocketCommunicateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8724D1AEDD4C9009D216A /* SocketCommunicateVC.m */; };
 		7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */; };
@@ -180,6 +173,8 @@
 		7ECEC6931B144606001EF8C3 /* SMPagedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECEC6921B144606001EF8C3 /* SMPagedView.m */; };
 		7EE3990D1AE123280069DAC2 /* ApiCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990C1AE123280069DAC2 /* ApiCommon.m */; };
 		7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */; };
+		7EEC43BD1B63447D007E0B43 /* EmotionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEC43BB1B63447D007E0B43 /* EmotionInfo.m */; };
+		7EEC43BE1B63447D007E0B43 /* emotions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EEC43BC1B63447D007E0B43 /* emotions.plist */; };
 		7EF350F91B02F76C001630C2 /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF350F81B02F76C001630C2 /* ImageUtils.m */; };
 /* End PBXBuildFile section */
 
@@ -485,20 +480,6 @@
 		7EC1E9991B11B7BB001D2AB4 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUImage.framework; sourceTree = "<group>"; };
 		7EC1E99B1B11B808001D2AB4 /* UIImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effects.h"; sourceTree = "<group>"; };
 		7EC1E99C1B11B808001D2AB4 /* UIImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effects.m"; sourceTree = "<group>"; };
-		7EC1E99F1B11CB2B001D2AB4 /* emotions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotions.plist; sourceTree = "<group>"; };
-		7EC1E9A01B11CB2B001D2AB4 /* SMEmotionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEmotionInfo.h; sourceTree = "<group>"; };
-		7EC1E9A11B11CB2C001D2AB4 /* SMEmotionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEmotionInfo.m; sourceTree = "<group>"; };
-		7EC1E9A41B11CB43001D2AB4 /* SMEmotionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEmotionLabel.h; sourceTree = "<group>"; };
-		7EC1E9A51B11CB43001D2AB4 /* SMEmotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEmotionLabel.m; sourceTree = "<group>"; };
-		7EC1E9A81B11CBB2001D2AB4 /* M80AttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80AttributedLabel.h; sourceTree = "<group>"; };
-		7EC1E9A91B11CBB2001D2AB4 /* M80AttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80AttributedLabel.m; sourceTree = "<group>"; };
-		7EC1E9AA1B11CBB2001D2AB4 /* M80AttributedLabelAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80AttributedLabelAttachment.h; sourceTree = "<group>"; };
-		7EC1E9AB1B11CBB2001D2AB4 /* M80AttributedLabelAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80AttributedLabelAttachment.m; sourceTree = "<group>"; };
-		7EC1E9AC1B11CBB2001D2AB4 /* M80AttributedLabelDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80AttributedLabelDefines.h; sourceTree = "<group>"; };
-		7EC1E9AD1B11CBB2001D2AB4 /* M80AttributedLabelURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80AttributedLabelURL.h; sourceTree = "<group>"; };
-		7EC1E9AE1B11CBB2001D2AB4 /* M80AttributedLabelURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80AttributedLabelURL.m; sourceTree = "<group>"; };
-		7EC1E9AF1B11CBB2001D2AB4 /* NSMutableAttributedString+M80.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+M80.h"; sourceTree = "<group>"; };
-		7EC1E9B01B11CBB2001D2AB4 /* NSMutableAttributedString+M80.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+M80.m"; sourceTree = "<group>"; };
 		7EC872491AEDD34A009D216A /* SocketCreateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketCreateVC.h; sourceTree = "<group>"; };
 		7EC8724A1AEDD34A009D216A /* SocketCreateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketCreateVC.m; sourceTree = "<group>"; };
 		7EC8724C1AEDD4C9009D216A /* SocketCommunicateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketCommunicateVC.h; sourceTree = "<group>"; };
@@ -513,6 +494,9 @@
 		7EE3990C1AE123280069DAC2 /* ApiCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCommon.m; sourceTree = "<group>"; };
 		7EE3990E1AE1249D0069DAC2 /* ApiDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDemo.h; sourceTree = "<group>"; };
 		7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiDemo.m; sourceTree = "<group>"; };
+		7EEC43BA1B63447D007E0B43 /* EmotionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionInfo.h; sourceTree = "<group>"; };
+		7EEC43BB1B63447D007E0B43 /* EmotionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionInfo.m; sourceTree = "<group>"; };
+		7EEC43BC1B63447D007E0B43 /* emotions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotions.plist; sourceTree = "<group>"; };
 		7EF350F71B02F76C001630C2 /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
 		7EF350F81B02F76C001630C2 /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -812,7 +796,7 @@
 		7E9776F11AF863C900AA4ABB /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				7EC1E99E1B11CB2B001D2AB4 /* SMEmotionLabel */,
+				7EEC43B91B63447D007E0B43 /* Emotion */,
 				7E8C7F961B0C74030034B337 /* SMInputBar */,
 				7E8C7F9D1B0C74030034B337 /* SMPhotoBrowser */,
 				7E8C7F931B0C74030034B337 /* SMImagePicker */,
@@ -982,7 +966,6 @@
 				7E7E83791AE005C9007C3D7F /* DACircularProgress */,
 				7EB2DE1D1AE0017600D3C265 /* FMDB */,
 				7EC1E9991B11B7BB001D2AB4 /* GPUImage.framework */,
-				7EC1E9A71B11CBB2001D2AB4 /* M80AttributedLabel */,
 				7EB2DE2E1AE001E900D3C265 /* MBProgressHUD */,
 				7EB2DE321AE0031700D3C265 /* MJRefresh */,
 				7E7E83A71AE005ED007C3D7F /* MWPhotoBrowser */,
@@ -1104,34 +1087,6 @@
 			path = Swizzle;
 			sourceTree = "<group>";
 		};
-		7EC1E99E1B11CB2B001D2AB4 /* SMEmotionLabel */ = {
-			isa = PBXGroup;
-			children = (
-				7EC1E9A41B11CB43001D2AB4 /* SMEmotionLabel.h */,
-				7EC1E9A51B11CB43001D2AB4 /* SMEmotionLabel.m */,
-				7EC1E9A01B11CB2B001D2AB4 /* SMEmotionInfo.h */,
-				7EC1E9A11B11CB2C001D2AB4 /* SMEmotionInfo.m */,
-				7EC1E99F1B11CB2B001D2AB4 /* emotions.plist */,
-			);
-			path = SMEmotionLabel;
-			sourceTree = "<group>";
-		};
-		7EC1E9A71B11CBB2001D2AB4 /* M80AttributedLabel */ = {
-			isa = PBXGroup;
-			children = (
-				7EC1E9A81B11CBB2001D2AB4 /* M80AttributedLabel.h */,
-				7EC1E9A91B11CBB2001D2AB4 /* M80AttributedLabel.m */,
-				7EC1E9AA1B11CBB2001D2AB4 /* M80AttributedLabelAttachment.h */,
-				7EC1E9AB1B11CBB2001D2AB4 /* M80AttributedLabelAttachment.m */,
-				7EC1E9AC1B11CBB2001D2AB4 /* M80AttributedLabelDefines.h */,
-				7EC1E9AD1B11CBB2001D2AB4 /* M80AttributedLabelURL.h */,
-				7EC1E9AE1B11CBB2001D2AB4 /* M80AttributedLabelURL.m */,
-				7EC1E9AF1B11CBB2001D2AB4 /* NSMutableAttributedString+M80.h */,
-				7EC1E9B01B11CBB2001D2AB4 /* NSMutableAttributedString+M80.m */,
-			);
-			path = M80AttributedLabel;
-			sourceTree = "<group>";
-		};
 		7EC872481AEDD2D6009D216A /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1167,6 +1122,16 @@
 				7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		7EEC43B91B63447D007E0B43 /* Emotion */ = {
+			isa = PBXGroup;
+			children = (
+				7EEC43BA1B63447D007E0B43 /* EmotionInfo.h */,
+				7EEC43BB1B63447D007E0B43 /* EmotionInfo.m */,
+				7EEC43BC1B63447D007E0B43 /* emotions.plist */,
+			);
+			path = Emotion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1284,7 +1249,6 @@
 				7EB2DE4B1AE0031700D3C265 /* MJRefresh.bundle in Resources */,
 				7E8C7F791B0C6C5D0034B337 /* e_19@2x.png in Resources */,
 				7E8C7F831B0C6C5D0034B337 /* e_28@2x.png in Resources */,
-				7EC1E9A21B11CB2C001D2AB4 /* emotions.plist in Resources */,
 				7E8C7F821B0C6C5D0034B337 /* e_27@2x.png in Resources */,
 				7E8C7F8A1B0C6C5D0034B337 /* e_4@2x.png in Resources */,
 				7E8C7F8F1B0C6C5D0034B337 /* e_9@2x.png in Resources */,
@@ -1293,6 +1257,7 @@
 				7E8C7F7E1B0C6C5D0034B337 /* e_23@2x.png in Resources */,
 				7E8C7F811B0C6C5D0034B337 /* e_26@2x.png in Resources */,
 				7E0AE4F01AF8C34900C9C9CE /* inputbar_del@2x.png in Resources */,
+				7EEC43BE1B63447D007E0B43 /* emotions.plist in Resources */,
 				7E9776F91AF8683400AA4ABB /* inputbar_emotion@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1338,11 +1303,9 @@
 				7E7E83EF1AE007CA007C3D7F /* Keyboard.m in Sources */,
 				7EC1E99D1B11B808001D2AB4 /* UIImage+Effects.m in Sources */,
 				7E7E836E1AE00573007C3D7F /* SDWebImageDecoder.m in Sources */,
-				7EC1E9A61B11CB43001D2AB4 /* SMEmotionLabel.m in Sources */,
 				7EC1E9911B0F1496001D2AB4 /* PickImagesVC.m in Sources */,
 				7EB2DD971ADFCA5D00D3C265 /* Context.m in Sources */,
 				7EB2DE311AE001E900D3C265 /* MBProgressHUD.m in Sources */,
-				7EC1E9B31B11CBB2001D2AB4 /* M80AttributedLabelURL.m in Sources */,
 				7EB2DD961ADFCA5D00D3C265 /* App.m in Sources */,
 				7EB2DE291AE0017600D3C265 /* FMDatabase.m in Sources */,
 				7E8C7FA21B0C74030034B337 /* SMImagePickerController.m in Sources */,
@@ -1359,7 +1322,6 @@
 				7EB2DE501AE0031700D3C265 /* MJRefreshGifHeader.m in Sources */,
 				7E7E83BC1AE005ED007C3D7F /* MWGridCell.m in Sources */,
 				7E8D15251AEA692000274A37 /* SocketHelper.m in Sources */,
-				7EC1E9A31B11CB2C001D2AB4 /* SMEmotionInfo.m in Sources */,
 				7E7E83E81AE00768007C3D7F /* PSTCollectionViewUpdateItem.m in Sources */,
 				7E7E836B1AE00573007C3D7F /* NSData+ImageContentType.m in Sources */,
 				7EB7388D1AE5FFF6000136E3 /* UIControl+Blocks.m in Sources */,
@@ -1383,7 +1345,6 @@
 				7E0AE4F31AF8CA6300C9C9CE /* UIView+ViewController.m in Sources */,
 				7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */,
 				7E7E83721AE00573007C3D7F /* SDWebImagePrefetcher.m in Sources */,
-				7EC1E9B41B11CBB2001D2AB4 /* NSMutableAttributedString+M80.m in Sources */,
 				7E7E83EC1AE00768007C3D7F /* PSTGridLayoutSection.m in Sources */,
 				7E7E1E1F1B01F72E006D3908 /* Stack.m in Sources */,
 				7EB2DE4E1AE0031700D3C265 /* MJRefreshFooter.m in Sources */,
@@ -1391,7 +1352,6 @@
 				7E7E836D1AE00573007C3D7F /* SDWebImageCompat.m in Sources */,
 				7E7E84051AE01620007C3D7F /* UIViewControllerExt.m in Sources */,
 				7E7E83BB1AE005ED007C3D7F /* MWCaptionView.m in Sources */,
-				7EC1E9B21B11CBB2001D2AB4 /* M80AttributedLabelAttachment.m in Sources */,
 				7EB2DD921ADFCA5D00D3C265 /* FileSystem.m in Sources */,
 				7E1716EF1AE1170A0091E09C /* AFURLRequestSerialization.m in Sources */,
 				7E7E83741AE00573007C3D7F /* UIImage+GIF.m in Sources */,
@@ -1399,6 +1359,7 @@
 				7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */,
 				7E7E83C21AE005ED007C3D7F /* MWZoomingScrollView.m in Sources */,
 				7EB2DE1C1AE000AC00D3C265 /* OpenUDID.m in Sources */,
+				7EEC43BD1B63447D007E0B43 /* EmotionInfo.m in Sources */,
 				7E7E83E21AE00768007C3D7F /* PSTCollectionViewCell.m in Sources */,
 				7E8C7FA71B0C74030034B337 /* SMPhotoView.m in Sources */,
 				7E7E83761AE00573007C3D7F /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1434,7 +1395,6 @@
 				7EB2DE4C1AE0031700D3C265 /* MJRefreshComponent.m in Sources */,
 				7E7E84031AE01620007C3D7F /* UITableViewControllerExt.m in Sources */,
 				7E7E83E41AE00768007C3D7F /* PSTCollectionViewData.m in Sources */,
-				7EC1E9B11B11CBB2001D2AB4 /* M80AttributedLabel.m in Sources */,
 				7E7E836C1AE00573007C3D7F /* SDImageCache.m in Sources */,
 				7EB738861AE5FFF6000136E3 /* NSData+Value.m in Sources */,
 				7EB2DE2A1AE0017600D3C265 /* FMDatabaseAdditions.m in Sources */,

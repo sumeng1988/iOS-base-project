@@ -16,7 +16,7 @@
 #import "SMInputBar.h"
 #import "SMEmotionPanel.h"
 #import "SMExtentionPanel.h"
-#import "SMEmotionInfo.h"
+#import "EmotionInfo.h"
 
 @interface SMInputBar () <UITextViewDelegate, SMEmotionPanelDelegate, SMImagePickerDelegate>
 

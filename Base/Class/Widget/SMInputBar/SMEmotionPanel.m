@@ -7,7 +7,7 @@
 //
 
 #import "SMEmotionPanel.h"
-#import "SMEmotionInfo.h"
+#import "EmotionInfo.h"
 
 @interface SMEmotionItem : UIControl
 
@@ -92,7 +92,7 @@
         if (!itemView.hidden) {
             NSString *emotion = [emotions objectAtIndex:i];
             itemView.emotion = emotion;
-            itemView.imageView.image = [[SMEmotionInfo shared] imageForKey:emotion];
+            itemView.imageView.image = [[EmotionInfo shared] imageForKey:emotion];
         }
     }
 }
@@ -138,7 +138,7 @@
     _scrollView.showsVerticalScrollIndicator = NO;
     [self addSubview:_scrollView];
     
-    NSArray *emotions = [[SMEmotionInfo shared] all];
+    NSArray *emotions = [[EmotionInfo shared] all];
     NSUInteger countOfPage = kSMEmotionPageColumn * kSMEmotionPageRow;
     NSUInteger numberOfPage = (emotions.count - 1) / countOfPage + 1;
     for (int i = 0; i < numberOfPage; i++) {
