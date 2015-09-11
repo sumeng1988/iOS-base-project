@@ -13,5 +13,7 @@
 + (NSString*)UUID;
 
 - (BOOL)notEmpty;
+- (NSString *)MD5;
+- (NSString*)SHA1;
 
 @end

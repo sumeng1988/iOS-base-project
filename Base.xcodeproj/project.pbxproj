@@ -171,6 +171,8 @@
 		7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872511AEDD78A009D216A /* GCDAsyncSocket.m */; };
 		7EC872551AEDD78A009D216A /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */; };
 		7ECEC6931B144606001EF8C3 /* SMPagedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECEC6921B144606001EF8C3 /* SMPagedView.m */; };
+		7ED499121BA2610B0050CB64 /* SMAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED499111BA2610B0050CB64 /* SMAudioManager.m */; };
+		7ED4991D1BA2727F0050CB64 /* SMAudioPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED4991C1BA2727F0050CB64 /* SMAudioPlayView.m */; };
 		7EE3990D1AE123280069DAC2 /* ApiCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990C1AE123280069DAC2 /* ApiCommon.m */; };
 		7EE399101AE1249D0069DAC2 /* ApiDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3990F1AE1249D0069DAC2 /* ApiDemo.m */; };
 		7EEC43BD1B63447D007E0B43 /* EmotionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEC43BB1B63447D007E0B43 /* EmotionInfo.m */; };
@@ -490,6 +492,10 @@
 		7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		7ECEC6911B144606001EF8C3 /* SMPagedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPagedView.h; sourceTree = "<group>"; };
 		7ECEC6921B144606001EF8C3 /* SMPagedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPagedView.m; sourceTree = "<group>"; };
+		7ED499101BA2610B0050CB64 /* SMAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAudioManager.h; sourceTree = "<group>"; };
+		7ED499111BA2610B0050CB64 /* SMAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAudioManager.m; sourceTree = "<group>"; };
+		7ED4991B1BA2727F0050CB64 /* SMAudioPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAudioPlayView.h; sourceTree = "<group>"; };
+		7ED4991C1BA2727F0050CB64 /* SMAudioPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAudioPlayView.m; sourceTree = "<group>"; };
 		7EE3990B1AE123280069DAC2 /* ApiCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCommon.h; sourceTree = "<group>"; };
 		7EE3990C1AE123280069DAC2 /* ApiCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCommon.m; sourceTree = "<group>"; };
 		7EE3990E1AE1249D0069DAC2 /* ApiDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDemo.h; sourceTree = "<group>"; };
@@ -800,6 +806,7 @@
 				7E8C7F961B0C74030034B337 /* SMInputBar */,
 				7E8C7F9D1B0C74030034B337 /* SMPhotoBrowser */,
 				7E8C7F931B0C74030034B337 /* SMImagePicker */,
+				7ED4991A1BA2725A0050CB64 /* SMAudioView */,
 				7E17AC031B00BE81001CE5F5 /* SMImageView.h */,
 				7E17AC041B00BE81001CE5F5 /* SMImageView.m */,
 				7ECEC6911B144606001EF8C3 /* SMPagedView.h */,
@@ -946,14 +953,16 @@
 		7EB2DD8F1ADFCA5D00D3C265 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				7EF350F71B02F76C001630C2 /* ImageUtils.h */,
+				7EF350F81B02F76C001630C2 /* ImageUtils.m */,
 				7E7E83F31AE00A78007C3D7F /* SMHud.h */,
 				7E7E83F41AE00A78007C3D7F /* SMHud.m */,
 				7EA1CA551AF9B98200F134DE /* SMMemCache.h */,
 				7EA1CA561AF9B98200F134DE /* SMMemCache.m */,
 				7EAC8BE11AE0A46900DB9C4C /* SMImagePicker.h */,
 				7EAC8BE21AE0A46900DB9C4C /* SMImagePicker.m */,
-				7EF350F71B02F76C001630C2 /* ImageUtils.h */,
-				7EF350F81B02F76C001630C2 /* ImageUtils.m */,
+				7ED499101BA2610B0050CB64 /* SMAudioManager.h */,
+				7ED499111BA2610B0050CB64 /* SMAudioManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1111,6 +1120,15 @@
 				7EC872531AEDD78A009D216A /* GCDAsyncUdpSocket.m */,
 			);
 			path = AsyncSocket;
+			sourceTree = "<group>";
+		};
+		7ED4991A1BA2725A0050CB64 /* SMAudioView */ = {
+			isa = PBXGroup;
+			children = (
+				7ED4991B1BA2727F0050CB64 /* SMAudioPlayView.h */,
+				7ED4991C1BA2727F0050CB64 /* SMAudioPlayView.m */,
+			);
+			path = SMAudioView;
 			sourceTree = "<group>";
 		};
 		7EE3990A1AE1231E0069DAC2 /* Api */ = {
@@ -1359,6 +1377,7 @@
 				7EB2DD511ADFC80F00D3C265 /* AppDelegate.m in Sources */,
 				7E7E83C21AE005ED007C3D7F /* MWZoomingScrollView.m in Sources */,
 				7EB2DE1C1AE000AC00D3C265 /* OpenUDID.m in Sources */,
+				7ED499121BA2610B0050CB64 /* SMAudioManager.m in Sources */,
 				7EEC43BD1B63447D007E0B43 /* EmotionInfo.m in Sources */,
 				7E7E83E21AE00768007C3D7F /* PSTCollectionViewCell.m in Sources */,
 				7E8C7FA71B0C74030034B337 /* SMPhotoView.m in Sources */,
@@ -1374,6 +1393,7 @@
 				7EB7388A1AE5FFF6000136E3 /* NSObject+Attachment.m in Sources */,
 				7E7E83C01AE005ED007C3D7F /* MWTapDetectingImageView.m in Sources */,
 				7EA1CA571AF9B98200F134DE /* SMMemCache.m in Sources */,
+				7ED4991D1BA2727F0050CB64 /* SMAudioPlayView.m in Sources */,
 				7E7E83EB1AE00768007C3D7F /* PSTGridLayoutRow.m in Sources */,
 				7E7E83E61AE00768007C3D7F /* PSTCollectionViewItemKey.m in Sources */,
 				7EC872541AEDD78A009D216A /* GCDAsyncSocket.m in Sources */,
