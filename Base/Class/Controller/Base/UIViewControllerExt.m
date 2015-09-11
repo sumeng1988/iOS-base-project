@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"%@ viewDidLoad", NSStringFromClass([self class]));
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -55,6 +56,10 @@
     else {
         [self viewDidOtherAppear];
     }
+}
+
+- (void)dealloc {
+    NSLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 
 #pragma mark - public

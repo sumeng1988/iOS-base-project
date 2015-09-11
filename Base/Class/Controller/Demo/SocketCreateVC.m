@@ -21,13 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    __weak typeof(self) weakSelf = self;
+    
     UIButton *createBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [createBtn setTitle:@"Create" forState:UIControlStateNormal];
     createBtn.leftTop = CGPointMake(10, 70);
     [createBtn sizeToFit];
     [createBtn addActionForControlEvents:UIControlEventTouchUpInside usingBlock:^(UIControl *sender, UIEvent *event) {
         SocketCommunicateVC *vc = [[SocketCommunicateVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];;
+        [weakSelf.navigationController pushViewController:vc animated:YES];;
     }];
     [self.view addSubview:createBtn];
     
@@ -37,9 +39,9 @@
     [joinBtn sizeToFit];
     [joinBtn addActionForControlEvents:UIControlEventTouchUpInside usingBlock:^(UIControl *sender, UIEvent *event) {
         SocketCommunicateVC *vc = [[SocketCommunicateVC alloc] init];
-        vc.ip = _ipTf.text;
-        vc.port = [_portTf.text intValue];
-        [self.navigationController pushViewController:vc animated:YES];;
+        vc.ip = weakSelf.ipTf.text;
+        vc.port = [weakSelf.portTf.text intValue];
+        [weakSelf.navigationController pushViewController:vc animated:YES];;
     }];
     [self.view addSubview:joinBtn];
     
